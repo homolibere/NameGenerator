@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using NameGeneratorEngine.Enums;
 
@@ -13,17 +12,17 @@ internal class BuildingNameData
     /// Gets the dictionary mapping building types to their specific name data.
     /// </summary>
     [JsonPropertyName("typeData")]
-    public required Dictionary<BuildingType, BuildingTypeData> TypeData { get; init; }
+    required public Dictionary<BuildingType, BuildingTypeData> TypeData { get; init; }
 
     /// <summary>
     /// Gets the array of generic prefixes used when no specific building type is provided.
     /// </summary>
     [JsonPropertyName("genericPrefixes")]
-    public required string[] GenericPrefixes { get; init; }
+    required public string[] GenericPrefixes { get; init; }
 
     /// <summary>
     /// Gets the array of generic suffixes used when no specific building type is provided.
     /// </summary>
     [JsonPropertyName("genericSuffixes")]
-    public required string[] GenericSuffixes { get; init; }
+    required public string[] GenericSuffixes { get; init; }
 }

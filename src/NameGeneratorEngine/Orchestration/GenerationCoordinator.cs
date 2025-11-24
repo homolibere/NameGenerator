@@ -39,14 +39,34 @@ internal class GenerationCoordinator
         Dictionary<string, object>? parameters = null)
     {
         var themeData = _themeProvider.GetThemeData(theme);
-        int attempts = 0;
+        return GenerateName(entityType, themeData, theme, sessionState, parameters);
+    }
+
+    /// <summary>
+    /// Generates a name for the specified entity type using provided theme data with duplicate prevention.
+    /// </summary>
+    /// <param name="entityType">The type of entity to generate a name for.</param>
+    /// <param name="themeData">The theme data to use for generation.</param>
+    /// <param name="themeForException">The theme identifier for exception messages.</param>
+    /// <param name="sessionState">The current session state.</param>
+    /// <param name="parameters">Optional parameters specific to the entity type.</param>
+    /// <returns>A unique generated name.</returns>
+    /// <exception cref="NamePoolExhaustedException">Thrown when unable to generate a unique name after maximum attempts.</exception>
+    public string GenerateName(
+        EntityType entityType,
+        ThemeData.ThemeData themeData,
+        object themeForException,
+        SessionState sessionState,
+        Dictionary<string, object>? parameters = null)
+    {
+        var attempts = 0;
 
         while (attempts < MaxRetryAttempts)
         {
             attempts++;
 
             // Generate a candidate name based on entity type
-            string candidateName = entityType switch
+            var candidateName = entityType switch
             {
                 EntityType.Npc => GenerateNpcName(themeData, sessionState, parameters),
                 EntityType.Building => GenerateBuildingName(themeData, sessionState, parameters),
@@ -58,15 +78,17 @@ internal class GenerationCoordinator
             };
 
             // Check if the name is unique for this entity type
-            if (sessionState.Tracker.IsUnique(entityType, candidateName))
+            if (!sessionState.Tracker.IsUnique(entityType, candidateName))
             {
-                sessionState.Tracker.Track(entityType, candidateName);
-                return candidateName;
+                continue;
             }
+
+            sessionState.Tracker.Track(entityType, candidateName);
+            return candidateName;
         }
 
         // If we reach here, we've exhausted all attempts
-        throw new NamePoolExhaustedException(entityType, theme, attempts);
+        throw new NamePoolExhaustedException(entityType, themeForException, attempts);
     }
 
     private string GenerateNpcName(

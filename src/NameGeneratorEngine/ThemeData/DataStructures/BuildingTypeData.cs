@@ -11,17 +11,17 @@ internal class BuildingTypeData
     /// Gets the array of prefix syllables for building names.
     /// </summary>
     [JsonPropertyName("prefixes")]
-    public required string[] Prefixes { get; init; }
+    required public string[] Prefixes { get; init; }
 
     /// <summary>
     /// Gets the array of descriptive terms for building names.
     /// </summary>
     [JsonPropertyName("descriptors")]
-    public required string[] Descriptors { get; init; }
+    required public string[] Descriptors { get; init; }
 
     /// <summary>
     /// Gets the array of suffix syllables for building names.
     /// </summary>
     [JsonPropertyName("suffixes")]
-    public required string[] Suffixes { get; init; }
+    required public string[] Suffixes { get; init; }
 }

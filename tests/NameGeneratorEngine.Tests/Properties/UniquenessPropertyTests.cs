@@ -34,9 +34,9 @@ public class UniquenessPropertyTests
                 var generatedNames = new List<string>();
 
                 // Generate multiple names for the same entity type
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
-                    string name = entityType switch
+                    var name = entityType switch
                     {
                         EntityType.Npc => generator.GenerateNpcName(theme),
                         EntityType.Building => generator.GenerateBuildingName(theme),
@@ -77,9 +77,9 @@ public class UniquenessPropertyTests
                 // Generate names for all themes
                 foreach (var theme in Enum.GetValues<Theme>())
                 {
-                    for (int i = 0; i < countPerTheme; i++)
+                    for (var i = 0; i < countPerTheme; i++)
                     {
-                        string name = entityType switch
+                        var name = entityType switch
                         {
                             EntityType.Npc => generator.GenerateNpcName(theme),
                             EntityType.Building => generator.GenerateBuildingName(theme),
@@ -121,7 +121,7 @@ public class UniquenessPropertyTests
 
                 // Test NPC names with different genders
                 var npcNames = new List<string>();
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     var gender = (Gender)(i % 3);
                     npcNames.Add(generator.GenerateNpcName(theme, gender));
@@ -131,7 +131,7 @@ public class UniquenessPropertyTests
 
                 // Test building names with different types
                 var buildingNames = new List<string>();
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     var buildingType = (BuildingType)(i % 7);
                     buildingNames.Add(generator.GenerateBuildingName(theme, buildingType));

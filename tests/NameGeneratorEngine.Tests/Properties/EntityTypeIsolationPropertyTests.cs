@@ -47,7 +47,7 @@ public class EntityTypeIsolationPropertyTests
             }
 
             // But a different name should still be unique for all entity types
-            string differentName = name + "_different";
+            var differentName = name + "_different";
             foreach (var entityType in Enum.GetValues<EntityType>())
             {
                 tracker.IsUnique(entityType, differentName).Should().BeTrue(
@@ -143,30 +143,30 @@ public class EntityTypeIsolationPropertyTests
             var tracker = new DuplicateTracker();
 
             // Track different numbers of names for different entity types
-            int npcCount = Math.Min(names.Length, 10);
-            int buildingCount = Math.Min(names.Length, 20);
-            int cityCount = Math.Min(names.Length, 15);
+            var npcCount = Math.Min(names.Length, 10);
+            var buildingCount = Math.Min(names.Length, 20);
+            var cityCount = Math.Min(names.Length, 15);
 
-            for (int i = 0; i < npcCount; i++)
+            for (var i = 0; i < npcCount; i++)
             {
                 tracker.Track(EntityType.Npc, names[i]);
             }
 
-            for (int i = 0; i < buildingCount; i++)
+            for (var i = 0; i < buildingCount; i++)
             {
                 tracker.Track(EntityType.Building, names[i]);
             }
 
-            for (int i = 0; i < cityCount; i++)
+            for (var i = 0; i < cityCount; i++)
             {
                 tracker.Track(EntityType.City, names[i]);
             }
 
             // GetAttemptCount returns the number of UNIQUE names tracked (HashSet count)
             // So we need to count distinct names in each slice
-            int expectedNpcCount = names.Take(npcCount).Distinct().Count();
-            int expectedBuildingCount = names.Take(buildingCount).Distinct().Count();
-            int expectedCityCount = names.Take(cityCount).Distinct().Count();
+            var expectedNpcCount = names.Take(npcCount).Distinct().Count();
+            var expectedBuildingCount = names.Take(buildingCount).Distinct().Count();
+            var expectedCityCount = names.Take(cityCount).Distinct().Count();
 
             // Verify counts are isolated
             tracker.GetAttemptCount(EntityType.Npc).Should().Be(expectedNpcCount,

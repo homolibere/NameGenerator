@@ -34,9 +34,9 @@ public class ResetPropertyTests
                 var firstSetNames = new List<string>();
 
                 // Generate first set of names
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
-                    string name = entityType switch
+                    var name = entityType switch
                     {
                         EntityType.Npc => generator.GenerateNpcName(theme),
                         EntityType.Building => generator.GenerateBuildingName(theme),
@@ -58,9 +58,9 @@ public class ResetPropertyTests
                 var secondSetNames = new List<string>();
 
                 // Generate second set of names
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
-                    string name = entityType switch
+                    var name = entityType switch
                     {
                         EntityType.Npc => generator.GenerateNpcName(theme),
                         EntityType.Building => generator.GenerateBuildingName(theme),
@@ -103,9 +103,9 @@ public class ResetPropertyTests
                 foreach (var entityType in Enum.GetValues<EntityType>())
                 {
                     var names = new List<string>();
-                    for (int i = 0; i < count; i++)
+                    for (var i = 0; i < count; i++)
                     {
-                        string name = entityType switch
+                        var name = entityType switch
                         {
                             EntityType.Npc => generator.GenerateNpcName(theme),
                             EntityType.Building => generator.GenerateBuildingName(theme),
@@ -129,9 +129,9 @@ public class ResetPropertyTests
                 foreach (var entityType in Enum.GetValues<EntityType>())
                 {
                     var names = new List<string>();
-                    for (int i = 0; i < count; i++)
+                    for (var i = 0; i < count; i++)
                     {
-                        string name = entityType switch
+                        var name = entityType switch
                         {
                             EntityType.Npc => generator.GenerateNpcName(theme),
                             EntityType.Building => generator.GenerateBuildingName(theme),
@@ -175,11 +175,11 @@ public class ResetPropertyTests
                 var allCycles = new List<List<string>>();
 
                 // Perform multiple reset cycles
-                for (int cycle = 0; cycle < resetCount; cycle++)
+                for (var cycle = 0; cycle < resetCount; cycle++)
                 {
                     var cycleNames = new List<string>();
 
-                    for (int i = 0; i < namesPerCycle; i++)
+                    for (var i = 0; i < namesPerCycle; i++)
                     {
                         cycleNames.Add(generator.GenerateCityName(theme));
                     }

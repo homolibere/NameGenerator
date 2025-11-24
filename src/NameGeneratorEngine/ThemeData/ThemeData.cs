@@ -14,41 +14,41 @@ internal class ThemeData
     /// </summary>
     [JsonPropertyName("theme")]
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public required Theme Theme { get; init; }
+    required public Theme Theme { get; init; }
 
     /// <summary>
     /// Gets the NPC name data for this theme.
     /// </summary>
     [JsonPropertyName("npcNames")]
-    public required NpcNameData NpcNames { get; init; }
+    required public NpcNameData NpcNames { get; init; }
 
     /// <summary>
     /// Gets the building name data for this theme.
     /// </summary>
     [JsonPropertyName("buildingNames")]
-    public required BuildingNameData BuildingNames { get; init; }
+    required public BuildingNameData BuildingNames { get; init; }
 
     /// <summary>
     /// Gets the city name data for this theme.
     /// </summary>
     [JsonPropertyName("cityNames")]
-    public required CityNameData CityNames { get; init; }
+    required public CityNameData CityNames { get; init; }
 
     /// <summary>
     /// Gets the district name data for this theme.
     /// </summary>
     [JsonPropertyName("districtNames")]
-    public required DistrictNameData DistrictNames { get; init; }
+    required public DistrictNameData DistrictNames { get; init; }
 
     /// <summary>
     /// Gets the street name data for this theme.
     /// </summary>
     [JsonPropertyName("streetNames")]
-    public required StreetNameData StreetNames { get; init; }
+    required public StreetNameData StreetNames { get; init; }
 
     /// <summary>
     /// Gets the faction name data for this theme.
     /// </summary>
     [JsonPropertyName("factionNames")]
-    public required FactionNameData FactionNames { get; init; }
+    required public FactionNameData FactionNames { get; init; }
 }

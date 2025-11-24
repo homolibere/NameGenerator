@@ -18,6 +18,11 @@ public class NamePoolExhaustedException : Exception
     public Theme Theme { get; }
 
     /// <summary>
+    /// Gets the theme identifier being used for name generation (for custom themes).
+    /// </summary>
+    public string? ThemeIdentifier { get; }
+
+    /// <summary>
     /// Gets the number of attempts made before exhaustion.
     /// </summary>
     public int Attempts { get; }
@@ -34,6 +39,54 @@ public class NamePoolExhaustedException : Exception
     {
         EntityType = entityType;
         Theme = theme;
+        ThemeIdentifier = null;
+        Attempts = attempts;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the NamePoolExhaustedException class for custom themes.
+    /// </summary>
+    /// <param name="entityType">The entity type for which generation failed.</param>
+    /// <param name="themeIdentifier">The theme identifier being used.</param>
+    /// <param name="attempts">The number of attempts made.</param>
+    public NamePoolExhaustedException(EntityType entityType, string themeIdentifier, int attempts)
+        : base($"Unable to generate unique {entityType} name for '{themeIdentifier}' theme after {attempts} attempts. " +
+               $"Consider resetting the session or using a different seed.")
+    {
+        EntityType = entityType;
+        Theme = default; // Not applicable for custom themes
+        ThemeIdentifier = themeIdentifier;
+        Attempts = attempts;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the NamePoolExhaustedException class with a generic theme object.
+    /// </summary>
+    /// <param name="entityType">The entity type for which generation failed.</param>
+    /// <param name="themeObject">The theme object (Theme enum or string identifier).</param>
+    /// <param name="attempts">The number of attempts made.</param>
+    internal NamePoolExhaustedException(EntityType entityType, object themeObject, int attempts)
+        : base($"Unable to generate unique {entityType} name for '{themeObject}' theme after {attempts} attempts. " +
+               $"Consider resetting the session or using a different seed.")
+    {
+        EntityType = entityType;
+        
+        switch (themeObject)
+        {
+            case Theme themeEnum:
+                Theme = themeEnum;
+                ThemeIdentifier = null;
+                break;
+            case string identifier:
+                Theme = default;
+                ThemeIdentifier = identifier;
+                break;
+            default:
+                Theme = default;
+                ThemeIdentifier = themeObject?.ToString();
+                break;
+        }
+        
         Attempts = attempts;
     }
 }

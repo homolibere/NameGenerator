@@ -37,7 +37,7 @@ public class DefaultBuildingTypeDeterminismPropertyTests
                 var names2 = new List<string>();
 
                 // Generate names without specifying building type
-                for (int i = 0; i < callCount; i++)
+                for (var i = 0; i < callCount; i++)
                 {
                     names1.Add(generator1.GenerateBuildingName(theme));
                     names2.Add(generator2.GenerateBuildingName(theme));
@@ -73,7 +73,7 @@ public class DefaultBuildingTypeDeterminismPropertyTests
                     var names1 = new List<string>();
                     var names2 = new List<string>();
 
-                    for (int i = 0; i < callCount; i++)
+                    for (var i = 0; i < callCount; i++)
                     {
                         names1.Add(generator1.GenerateBuildingName(theme));
                         names2.Add(generator2.GenerateBuildingName(theme));
@@ -108,7 +108,7 @@ public class DefaultBuildingTypeDeterminismPropertyTests
                 var names2 = new List<string>();
 
                 // Interleave building name generation with other entity types
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     names1.Add(generator1.GenerateBuildingName(theme)); // No building type specified
                     names2.Add(generator2.GenerateBuildingName(theme)); // No building type specified

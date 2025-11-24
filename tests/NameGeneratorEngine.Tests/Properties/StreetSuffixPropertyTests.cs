@@ -11,7 +11,7 @@ namespace NameGeneratorEngine.Tests.Properties;
 public class StreetSuffixPropertyTests
 {
     // Valid street suffixes for each theme based on the theme JSON files
-    private static readonly Dictionary<Theme, HashSet<string>> ValidStreetSuffixes = new()
+    private static readonly Dictionary<Theme, HashSet<string>> ValidStreetSuffixes = new Dictionary<Theme, HashSet<string>>
     {
         {
             Theme.Cyberpunk,
@@ -61,9 +61,9 @@ public class StreetSuffixPropertyTests
             foreach (var theme in Enum.GetValues<Theme>())
             {
                 // Generate multiple street names to ensure consistency
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
-                    string streetName = generator.GenerateStreetName(theme);
+                    var streetName = generator.GenerateStreetName(theme);
 
                     // Verify the street name is not null or empty
                     streetName.Should().NotBeNullOrWhiteSpace(
@@ -71,7 +71,7 @@ public class StreetSuffixPropertyTests
 
                     // Check if the street name contains at least one valid suffix for this theme
                     var validSuffixes = ValidStreetSuffixes[theme];
-                    bool containsValidSuffix = validSuffixes.Any(suffix =>
+                    var containsValidSuffix = validSuffixes.Any(suffix =>
                         streetName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase));
 
                     containsValidSuffix.Should().BeTrue(
@@ -103,7 +103,7 @@ public class StreetSuffixPropertyTests
 
                 // Generate multiple street names
                 var streetNames = new List<string>();
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     streetNames.Add(generator.GenerateStreetName(theme));
                 }
@@ -111,7 +111,7 @@ public class StreetSuffixPropertyTests
                 // Verify all generated names have valid suffixes
                 foreach (var streetName in streetNames)
                 {
-                    bool hasValidSuffix = validSuffixes.Any(suffix =>
+                    var hasValidSuffix = validSuffixes.Any(suffix =>
                         streetName.EndsWith(suffix, StringComparison.OrdinalIgnoreCase));
 
                     hasValidSuffix.Should().BeTrue(

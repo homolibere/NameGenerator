@@ -7,7 +7,7 @@ namespace NameGeneratorEngine.Foundation;
 /// </summary>
 internal class DuplicateTracker
 {
-    private readonly Dictionary<EntityType, HashSet<string>> _trackedNames = new();
+    private readonly Dictionary<EntityType, HashSet<string>> _trackedNames = new Dictionary<EntityType, HashSet<string>>();
 
     /// <summary>
     /// Checks if a name is unique for the specified entity type.
@@ -17,12 +17,12 @@ internal class DuplicateTracker
     /// <returns>True if the name has not been generated before for this entity type; otherwise, false.</returns>
     public bool IsUnique(EntityType entityType, string name)
     {
-        if (!_trackedNames.ContainsKey(entityType))
+        if (!_trackedNames.TryGetValue(entityType, out HashSet<string>? value))
         {
             return true;
         }
 
-        return !_trackedNames[entityType].Contains(name);
+        return !value.Contains(name);
     }
 
     /// <summary>
@@ -32,12 +32,13 @@ internal class DuplicateTracker
     /// <param name="name">The name to track.</param>
     public void Track(EntityType entityType, string name)
     {
-        if (!_trackedNames.ContainsKey(entityType))
+        if (!_trackedNames.TryGetValue(entityType, out HashSet<string>? value))
         {
-            _trackedNames[entityType] = new HashSet<string>();
+            value = [];
+            _trackedNames[entityType] = value;
         }
 
-        _trackedNames[entityType].Add(name);
+        value.Add(name);
     }
 
     /// <summary>
@@ -55,11 +56,6 @@ internal class DuplicateTracker
     /// <returns>The count of tracked names for the entity type.</returns>
     public int GetAttemptCount(EntityType entityType)
     {
-        if (!_trackedNames.ContainsKey(entityType))
-        {
-            return 0;
-        }
-
-        return _trackedNames[entityType].Count;
+        return !_trackedNames.TryGetValue(entityType, out HashSet<string>? value) ? 0 : value.Count;
     }
 }

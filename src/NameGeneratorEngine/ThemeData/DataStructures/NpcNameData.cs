@@ -11,17 +11,17 @@ internal class NpcNameData
     /// Gets the name data for male NPCs.
     /// </summary>
     [JsonPropertyName("male")]
-    public required GenderNameData Male { get; init; }
+    required public GenderNameData Male { get; init; }
 
     /// <summary>
     /// Gets the name data for female NPCs.
     /// </summary>
     [JsonPropertyName("female")]
-    public required GenderNameData Female { get; init; }
+    required public GenderNameData Female { get; init; }
 
     /// <summary>
     /// Gets the name data for gender-neutral NPCs.
     /// </summary>
     [JsonPropertyName("neutral")]
-    public required GenderNameData Neutral { get; init; }
+    required public GenderNameData Neutral { get; init; }
 }

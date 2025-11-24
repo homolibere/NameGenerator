@@ -27,15 +27,9 @@ Or via the NuGet Package Manager Console:
 Install-Package NameGeneratorEngine
 ```
 
-Or add it directly to your `.csproj` file:
-
-```xml
-<ItemGroup>
-  <PackageReference Include="NameGeneratorEngine" Version="1.0.0" />
-</ItemGroup>
-```
-
 ## Basic Usage
+
+### Using Built-in Themes
 
 ```csharp
 using NameGeneratorEngine;
@@ -58,6 +52,241 @@ Console.WriteLine($"Building: {buildingName}");
 Console.WriteLine($"District: {districtName}");
 Console.WriteLine($"Street: {streetName}");
 Console.WriteLine($"Faction: {factionName}");
+```
+
+## Custom Themes
+
+The library supports registering custom themes at runtime, allowing you to create unlimited themes beyond the built-in Cyberpunk, Elves, and Orcs themes.
+
+### Creating Custom Themes Programmatically
+
+Use the `ThemeDataBuilder` to construct custom themes with a fluent API:
+
+```csharp
+using NameGeneratorEngine;
+
+// Create a custom Steampunk theme
+var steampunkTheme = new ThemeDataBuilder()
+    .WithNpcNames(npc => npc
+        .WithMaleNames(
+            prefixes: new[] { "Brass", "Copper", "Iron", "Steel", "Gear" },
+            cores: new[] { "worth", "smith", "wright", "ton", "ford" },
+            suffixes: new[] { "son", "ley", "by", "ham", "field" })
+        .WithFemaleNames(
+            prefixes: new[] { "Cog", "Spring", "Valve", "Piston", "Steam" },
+            cores: new[] { "belle", "rose", "grace", "anne", "lyn" },
+            suffixes: new[] { "ia", "ette", "ina", "ara", "elle" })
+        .WithNeutralNames(
+            prefixes: new[] { "Mech", "Auto", "Gyro", "Turbo", "Aero" },
+            cores: new[] { "spark", "bolt", "wire", "coil", "spring" },
+            suffixes: new[] { "ix", "ax", "ex", "on", "um" }))
+    .WithBuildingNames(building => building
+        .WithGenericNames(
+            prefixes: new[] { "The Brass", "The Copper", "The Iron", "The Steam" },
+            suffixes: new[] { "Works", "Factory", "Foundry", "Mill", "Forge" })
+        .WithTypeNames(BuildingType.Commercial,
+            prefixes: new[] { "Clockwork", "Steamwork", "Gearwork" },
+            descriptors: new[] { "Trading", "Merchant", "Supply" },
+            suffixes: new[] { "Company", "Emporium", "Exchange" }))
+    .WithCityNames(
+        prefixes: new[] { "New", "Old", "Upper", "Lower", "Greater" },
+        cores: new[] { "Brass", "Copper", "Steam", "Gear", "Cog" },
+        suffixes: new[] { "ton", "ville", "burg", "port", "haven" })
+    .WithDistrictNames(
+        descriptors: new[] { "Industrial", "Factory", "Foundry", "Workshop", "Mechanical" },
+        locationTypes: new[] { "Quarter", "District", "Ward", "Zone", "Sector" })
+    .WithStreetNames(
+        prefixes: new[] { "Brass", "Copper", "Iron", "Steam", "Gear" },
+        cores: new[] { "smith", "work", "forge", "mill", "foundry" },
+        streetSuffixes: new[] { "Street", "Avenue", "Road", "Lane", "Way" })
+    .WithFactionNames(
+        prefixes: new[] { "The", "United", "Royal", "Imperial", "Grand" },
+        cores: new[] { "Clockwork", "Steamwork", "Gearwork", "Mechanist", "Engineer" },
+        suffixes: new[] { "Guild", "Society", "Association", "Brotherhood", "Order" })
+    .Build();
+
+// Register the custom theme
+var generator = new NameGenerator();
+generator.RegisterCustomTheme("steampunk", steampunkTheme);
+
+// Generate names using the custom theme
+string npcName = generator.GenerateNpcName("steampunk", Gender.Male);
+string cityName = generator.GenerateCityName("steampunk");
+string buildingName = generator.GenerateBuildingName("steampunk", BuildingType.Commercial);
+
+Console.WriteLine($"NPC: {npcName}");
+Console.WriteLine($"City: {cityName}");
+Console.WriteLine($"Building: {buildingName}");
+```
+
+### Loading Custom Themes from JSON
+
+Load custom themes from external JSON files:
+
+```csharp
+// Load theme from a JSON file
+var customTheme = CustomThemeData.FromJson("path/to/steampunk.json");
+
+var generator = new NameGenerator();
+generator.RegisterCustomTheme("steampunk", customTheme);
+
+// Use the loaded theme
+string name = generator.GenerateNpcName("steampunk", Gender.Female);
+```
+
+JSON format example (`steampunk.json`):
+
+```json
+{
+  "npcNames": {
+    "male": {
+      "prefixes": ["Brass", "Copper", "Iron", "Steel", "Gear"],
+      "cores": ["worth", "smith", "wright", "ton", "ford"],
+      "suffixes": ["son", "ley", "by", "ham", "field"]
+    },
+    "female": {
+      "prefixes": ["Cog", "Spring", "Valve", "Piston", "Steam"],
+      "cores": ["belle", "rose", "grace", "anne", "lyn"],
+      "suffixes": ["ia", "ette", "ina", "ara", "elle"]
+    },
+    "neutral": {
+      "prefixes": ["Mech", "Auto", "Gyro", "Turbo", "Aero"],
+      "cores": ["spark", "bolt", "wire", "coil", "spring"],
+      "suffixes": ["ix", "ax", "ex", "on", "um"]
+    }
+  },
+  "buildingNames": {
+    "generic": {
+      "prefixes": ["The Brass", "The Copper", "The Iron"],
+      "suffixes": ["Works", "Factory", "Foundry", "Mill"]
+    },
+    "residential": {
+      "prefixes": ["Copper", "Brass", "Iron"],
+      "descriptors": ["Heights", "Towers", "Estates"],
+      "suffixes": ["Apartments", "Residences", "Dwellings"]
+    }
+  },
+  "cityNames": {
+    "prefixes": ["New", "Old", "Upper", "Lower"],
+    "cores": ["Brass", "Copper", "Steam", "Gear"],
+    "suffixes": ["ton", "ville", "burg", "port"]
+  },
+  "districtNames": {
+    "descriptors": ["Industrial", "Factory", "Foundry"],
+    "locationTypes": ["Quarter", "District", "Ward"]
+  },
+  "streetNames": {
+    "prefixes": ["Brass", "Copper", "Iron"],
+    "cores": ["smith", "work", "forge"],
+    "streetSuffixes": ["Street", "Avenue", "Road"]
+  },
+  "factionNames": {
+    "prefixes": ["The", "United", "Royal"],
+    "cores": ["Clockwork", "Steamwork", "Gearwork"],
+    "suffixes": ["Guild", "Society", "Association"]
+  }
+}
+```
+
+### Extending Existing Themes
+
+Add more variety to built-in themes without replacing them entirely:
+
+```csharp
+// Extend the Cyberpunk theme with additional NPC names
+var cyberpunkExtension = ThemeDataBuilder.Extend(Theme.Cyberpunk)
+    .WithNpcNames(npc => npc
+        .AddMalePrefixes("Neo", "Cyber", "Data", "Quantum", "Neural")
+        .AddMaleCores("hack", "wire", "byte", "node", "link")
+        .AddMaleSuffixes("son", "tech", "net", "core", "sys"))
+    .BuildExtension();
+
+var generator = new NameGenerator();
+generator.ExtendTheme(Theme.Cyberpunk, cyberpunkExtension);
+
+// Generated names now include both original and extended data
+string name = generator.GenerateNpcName(Theme.Cyberpunk, Gender.Male);
+// Could be "Neohackson" (using extension) or "Razorwire" (using original)
+```
+
+You can also extend custom themes:
+
+```csharp
+// First register a custom theme
+var steampunkTheme = CustomThemeData.FromJson("steampunk.json");
+generator.RegisterCustomTheme("steampunk", steampunkTheme);
+
+// Then extend it
+var steampunkExtension = ThemeDataBuilder.Extend("steampunk")
+    .WithCityNames(
+        prefixes: new[] { "Neo", "Ultra", "Mega" },
+        cores: new[] { "Steam", "Gear", "Cog" },
+        suffixes: new[] { "opolis", "city", "metropolis" })
+    .BuildExtension();
+
+generator.ExtendTheme("steampunk", steampunkExtension);
+```
+
+### Configuration-Based Initialization
+
+Initialize the generator with all custom themes and extensions in one step:
+
+```csharp
+// Create a configuration with multiple custom themes and extensions
+var config = new ThemeConfig()
+    .AddTheme("steampunk", steampunkTheme)
+    .AddThemeFromJson("fantasy", "path/to/fantasy.json")
+    .ExtendTheme(Theme.Cyberpunk, cyberpunkExtension)
+    .ExtendTheme("steampunk", steampunkExtension);
+
+// Create generator with configuration
+var generator = new NameGenerator(config, seed: 42);
+
+// All themes are immediately available
+string cyberpunkName = generator.GenerateNpcName(Theme.Cyberpunk, Gender.Male);
+string steampunkName = generator.GenerateNpcName("steampunk", Gender.Female);
+string fantasyName = generator.GenerateCityName("fantasy");
+```
+
+### Listing Available Themes
+
+Get a list of all registered themes (built-in and custom):
+
+```csharp
+var generator = new NameGenerator();
+generator.RegisterCustomTheme("steampunk", steampunkTheme);
+generator.RegisterCustomTheme("fantasy", fantasyTheme);
+
+var availableThemes = generator.GetAvailableThemes();
+// Returns: ["Cyberpunk", "Elves", "Orcs", "steampunk", "fantasy"]
+
+Console.WriteLine("Available themes:");
+foreach (var theme in availableThemes)
+{
+    Console.WriteLine($"  - {theme}");
+}
+```
+
+### Custom Theme Validation
+
+The library validates all custom theme data to ensure completeness:
+
+```csharp
+try
+{
+    var invalidTheme = new ThemeDataBuilder()
+        .WithNpcNames(npc => npc
+            .WithMaleNames(
+                prefixes: new[] { "Test" },
+                cores: new string[] { },  // Empty array - invalid!
+                suffixes: new[] { "son" }))
+        .Build();
+}
+catch (ArgumentException ex)
+{
+    Console.WriteLine($"Validation error: {ex.Message}");
+    // Output: "NPC Male Cores array is empty. All arrays must contain at least one element."
+}
 ```
 
 ## Deterministic Generation
@@ -190,13 +419,19 @@ string name = _generator.Value.GenerateCityName(Theme.Cyberpunk);
 
 ### NameGenerator Class
 
-#### Constructor
+#### Constructors
 
 ```csharp
 public NameGenerator(int? seed = null)
 ```
 
 Creates a new name generator instance. If no seed is provided, a random seed is generated.
+
+```csharp
+public NameGenerator(ThemeConfig? config, int? seed = null)
+```
+
+Creates a new name generator instance with custom theme configuration. Registers all custom themes and applies all extensions from the configuration.
 
 #### Properties
 
@@ -206,49 +441,226 @@ public int Seed { get; }
 
 Gets the seed value being used for the current session.
 
-#### Methods
+#### Name Generation Methods
 
 ```csharp
 public string GenerateNpcName(Theme theme, Gender? gender = null)
+public string GenerateNpcName(string themeIdentifier, Gender? gender = null)
 ```
 
-Generates an NPC name. If gender is not specified, a random gender is selected.
+Generates an NPC name. If gender is not specified, a random gender is selected. Accepts either a built-in Theme enum or a custom theme identifier string.
 
 ```csharp
 public string GenerateBuildingName(Theme theme, BuildingType? buildingType = null)
+public string GenerateBuildingName(string themeIdentifier, BuildingType? buildingType = null)
 ```
 
-Generates a building name. If building type is not specified, a generic building name is generated.
+Generates a building name. If building type is not specified, a generic building name is generated. Accepts either a built-in Theme enum or a custom theme identifier string.
 
 ```csharp
 public string GenerateCityName(Theme theme)
+public string GenerateCityName(string themeIdentifier)
 ```
 
-Generates a city name for the specified theme.
+Generates a city name for the specified theme. Accepts either a built-in Theme enum or a custom theme identifier string.
 
 ```csharp
 public string GenerateDistrictName(Theme theme)
+public string GenerateDistrictName(string themeIdentifier)
 ```
 
-Generates a district name for the specified theme.
+Generates a district name for the specified theme. Accepts either a built-in Theme enum or a custom theme identifier string.
 
 ```csharp
 public string GenerateStreetName(Theme theme)
+public string GenerateStreetName(string themeIdentifier)
 ```
 
-Generates a street name for the specified theme.
+Generates a street name for the specified theme. Accepts either a built-in Theme enum or a custom theme identifier string.
 
 ```csharp
 public string GenerateFactionName(Theme theme)
+public string GenerateFactionName(string themeIdentifier)
 ```
 
-Generates a faction name for the specified theme.
+Generates a faction name for the specified theme. Accepts either a built-in Theme enum or a custom theme identifier string.
+
+#### Custom Theme Management Methods
+
+```csharp
+public void RegisterCustomTheme(string identifier, CustomThemeData themeData)
+```
+
+Registers a custom theme with the specified identifier. The identifier is case-insensitive and cannot conflict with built-in theme names.
+
+```csharp
+public void ExtendTheme(Theme baseTheme, ThemeExtension extension)
+public void ExtendTheme(string baseThemeIdentifier, ThemeExtension extension)
+```
+
+Extends an existing theme (built-in or custom) with additional data. Multiple extensions can be applied to the same theme.
+
+```csharp
+public IReadOnlyCollection<string> GetAvailableThemes()
+```
+
+Returns a list of all available theme identifiers, including both built-in themes (as strings) and registered custom themes.
+
+#### Session Management
 
 ```csharp
 public void ResetSession()
 ```
 
 Resets the generation session, clearing all tracked names and allowing previously generated names to be reused.
+
+### ThemeDataBuilder Class
+
+Fluent builder for constructing custom theme data.
+
+#### Creating New Themes
+
+```csharp
+public ThemeDataBuilder()
+```
+
+Creates a new builder for constructing a complete custom theme from scratch.
+
+```csharp
+public ThemeDataBuilder WithNpcNames(Action<NpcNameDataBuilder> configure)
+```
+
+Configures NPC name data for all genders (male, female, neutral).
+
+```csharp
+public ThemeDataBuilder WithBuildingNames(Action<BuildingNameDataBuilder> configure)
+```
+
+Configures building name data for generic and type-specific buildings.
+
+```csharp
+public ThemeDataBuilder WithCityNames(string[] prefixes, string[] cores, string[] suffixes)
+public ThemeDataBuilder WithDistrictNames(string[] descriptors, string[] locationTypes)
+public ThemeDataBuilder WithStreetNames(string[] prefixes, string[] cores, string[] streetSuffixes)
+public ThemeDataBuilder WithFactionNames(string[] prefixes, string[] cores, string[] suffixes)
+```
+
+Configures name data for other entity types.
+
+```csharp
+public CustomThemeData Build()
+```
+
+Builds and validates the complete custom theme data.
+
+#### Extending Existing Themes
+
+```csharp
+public static ThemeDataBuilder Extend(Theme baseTheme)
+public static ThemeDataBuilder Extend(string baseThemeIdentifier)
+```
+
+Creates a builder for extending an existing theme (built-in or custom).
+
+```csharp
+public ThemeExtension BuildExtension()
+```
+
+Builds a theme extension that can be merged with the base theme.
+
+### NpcNameDataBuilder Class
+
+Builder for NPC name data with gender-specific configuration.
+
+```csharp
+public NpcNameDataBuilder WithMaleNames(string[] prefixes, string[] cores, string[] suffixes)
+public NpcNameDataBuilder WithFemaleNames(string[] prefixes, string[] cores, string[] suffixes)
+public NpcNameDataBuilder WithNeutralNames(string[] prefixes, string[] cores, string[] suffixes)
+```
+
+Sets complete name data for a specific gender (used when creating new themes).
+
+```csharp
+public NpcNameDataBuilder AddMalePrefixes(params string[] prefixes)
+public NpcNameDataBuilder AddMaleCores(params string[] cores)
+public NpcNameDataBuilder AddMaleSuffixes(params string[] suffixes)
+// Similar methods for Female and Neutral
+```
+
+Adds additional syllables to existing gender data (used when extending themes).
+
+### BuildingNameDataBuilder Class
+
+Builder for building name data with generic and type-specific configuration.
+
+```csharp
+public BuildingNameDataBuilder WithGenericNames(string[] prefixes, string[] suffixes)
+```
+
+Sets generic building name data (used for all building types).
+
+```csharp
+public BuildingNameDataBuilder WithTypeNames(
+    BuildingType type, 
+    string[] prefixes, 
+    string[] descriptors, 
+    string[] suffixes)
+```
+
+Sets type-specific building name data (used when creating new themes).
+
+```csharp
+public BuildingNameDataBuilder AddGenericPrefixes(params string[] prefixes)
+public BuildingNameDataBuilder AddGenericSuffixes(params string[] suffixes)
+public BuildingNameDataBuilder AddTypePrefixes(BuildingType type, params string[] prefixes)
+public BuildingNameDataBuilder AddTypeDescriptors(BuildingType type, params string[] descriptors)
+public BuildingNameDataBuilder AddTypeSuffixes(BuildingType type, params string[] suffixes)
+```
+
+Adds additional data to existing building name data (used when extending themes).
+
+### CustomThemeData Class
+
+Immutable representation of custom theme data.
+
+```csharp
+public static CustomThemeData FromJson(string jsonFilePath)
+```
+
+Loads custom theme data from a JSON file.
+
+```csharp
+public static CustomThemeData FromJsonString(string jsonContent)
+```
+
+Loads custom theme data from a JSON string.
+
+### ThemeExtension Class
+
+Immutable representation of theme extension data. Created by `ThemeDataBuilder.BuildExtension()`.
+
+### ThemeConfig Class
+
+Configuration object for initializing NameGenerator with custom themes.
+
+```csharp
+public ThemeConfig AddTheme(string identifier, CustomThemeData themeData)
+```
+
+Adds a custom theme to the configuration.
+
+```csharp
+public ThemeConfig AddThemeFromJson(string identifier, string jsonFilePath)
+```
+
+Loads and adds a custom theme from a JSON file.
+
+```csharp
+public ThemeConfig ExtendTheme(Theme baseTheme, ThemeExtension extension)
+public ThemeConfig ExtendTheme(string baseThemeIdentifier, ThemeExtension extension)
+```
+
+Adds a theme extension to the configuration.
 
 ### Enumerations
 
@@ -335,13 +747,17 @@ Thrown when the generator cannot produce a unique name after 1000 attempts.
 
 Contributions are welcome! Here are some ways you can contribute:
 
-### Adding New Themes
+### Adding New Built-in Themes
+
+To add a new built-in theme to the library itself:
 
 1. Create a new JSON file in `src/NameGeneratorEngine/ThemeData/` following the existing structure
 2. Add the theme to the `Theme` enum in `src/NameGeneratorEngine/Enums/Theme.cs`
 3. Ensure the JSON file is marked as an embedded resource in the `.csproj` file
-4. Add unit tests for the new theme
+4. Add unit tests and property tests for the new theme
 5. Update this README with the new theme's characteristics
+
+Note: For most use cases, you can create custom themes at runtime without modifying the library. See the "Custom Themes" section above.
 
 ### Reporting Issues
 

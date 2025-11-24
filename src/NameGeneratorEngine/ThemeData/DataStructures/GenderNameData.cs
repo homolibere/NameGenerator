@@ -11,17 +11,17 @@ internal class GenderNameData
     /// Gets the array of prefix syllables used at the start of names.
     /// </summary>
     [JsonPropertyName("prefixes")]
-    public required string[] Prefixes { get; init; }
+    required public string[] Prefixes { get; init; }
 
     /// <summary>
     /// Gets the array of core syllables used in the middle of names.
     /// </summary>
     [JsonPropertyName("cores")]
-    public required string[] Cores { get; init; }
+    required public string[] Cores { get; init; }
 
     /// <summary>
     /// Gets the array of suffix syllables used at the end of names.
     /// </summary>
     [JsonPropertyName("suffixes")]
-    public required string[] Suffixes { get; init; }
+    required public string[] Suffixes { get; init; }
 }

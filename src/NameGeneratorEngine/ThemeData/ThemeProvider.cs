@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Text.Json;
 using NameGeneratorEngine.Enums;
 using NameGeneratorEngine.ThemeData.DataStructures;
@@ -15,7 +10,7 @@ namespace NameGeneratorEngine.ThemeData;
 /// </summary>
 internal class ThemeProvider
 {
-    private readonly Dictionary<Theme, ThemeData> _themeCache = new();
+    private readonly Dictionary<Theme, ThemeData> _themeCache = new Dictionary<Theme, ThemeData>();
     private readonly System.Reflection.Assembly _assembly;
 
     /// <summary>
@@ -66,7 +61,7 @@ internal class ThemeProvider
         ValidateStringArray(themeData.BuildingNames.GenericSuffixes, "Building Generic Suffixes", errors);
 
         // Validate each building type has data
-        foreach (BuildingType buildingType in Enum.GetValues<BuildingType>())
+        foreach (var buildingType in Enum.GetValues<BuildingType>())
         {
             if (!themeData.BuildingNames.TypeData.ContainsKey(buildingType))
             {
@@ -162,9 +157,25 @@ internal class ThemeProvider
         {
             errors.Add($"{fieldName} is null or empty");
         }
-        else if (array.Any(s => s == null || (s.Length > 0 && string.IsNullOrWhiteSpace(s))))
+        else
         {
-            errors.Add($"{fieldName} contains null or whitespace entries");
+            var invalidIndices = new List<string>();
+            for (var i = 0; i < array.Length; i++)
+            {
+                if (array[i] == null)
+                {
+                    invalidIndices.Add($"index {i} (null)");
+                }
+                else if (array[i].Length > 0 && string.IsNullOrWhiteSpace(array[i]))
+                {
+                    invalidIndices.Add($"index {i} (whitespace-only: '{array[i]}')");
+                }
+            }
+            
+            if (invalidIndices.Count > 0)
+            {
+                errors.Add($"{fieldName} contains invalid entries at {string.Join(", ", invalidIndices)}");
+            }
         }
     }
 }

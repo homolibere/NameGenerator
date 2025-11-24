@@ -27,9 +27,9 @@ internal class NameBuilder
     /// <returns>A generated NPC name.</returns>
     public string BuildNpcName(GenderNameData data, SeededRandom random)
     {
-        string prefix = _selector.SelectFrom(data.Prefixes, random);
-        string core = _selector.SelectFrom(data.Cores, random);
-        string suffix = _selector.SelectFrom(data.Suffixes, random);
+        var prefix = _selector.SelectFrom(data.Prefixes, random);
+        var core = _selector.SelectFrom(data.Cores, random);
+        var suffix = _selector.SelectFrom(data.Suffixes, random);
 
         return prefix + core + suffix;
     }
@@ -46,17 +46,17 @@ internal class NameBuilder
         if (type.HasValue && data.TypeData.TryGetValue(type.Value, out var typeData))
         {
             // Use type-specific data
-            string prefix = _selector.SelectFrom(typeData.Prefixes, random);
-            string descriptor = _selector.SelectFrom(typeData.Descriptors, random);
-            string suffix = _selector.SelectFrom(typeData.Suffixes, random);
+            var prefix = _selector.SelectFrom(typeData.Prefixes, random);
+            var descriptor = _selector.SelectFrom(typeData.Descriptors, random);
+            var suffix = _selector.SelectFrom(typeData.Suffixes, random);
 
             return prefix + " " + descriptor + suffix;
         }
         else
         {
             // Use generic data
-            string prefix = _selector.SelectFrom(data.GenericPrefixes, random);
-            string suffix = _selector.SelectFrom(data.GenericSuffixes, random);
+            var prefix = _selector.SelectFrom(data.GenericPrefixes, random);
+            var suffix = _selector.SelectFrom(data.GenericSuffixes, random);
 
             return prefix + suffix;
         }
@@ -70,9 +70,9 @@ internal class NameBuilder
     /// <returns>A generated city name.</returns>
     public string BuildCityName(CityNameData data, SeededRandom random)
     {
-        string prefix = _selector.SelectFrom(data.Prefixes, random);
-        string core = _selector.SelectFrom(data.Cores, random);
-        string suffix = _selector.SelectFrom(data.Suffixes, random);
+        var prefix = _selector.SelectFrom(data.Prefixes, random);
+        var core = _selector.SelectFrom(data.Cores, random);
+        var suffix = _selector.SelectFrom(data.Suffixes, random);
 
         return prefix + core + suffix;
     }
@@ -85,8 +85,8 @@ internal class NameBuilder
     /// <returns>A generated district name.</returns>
     public string BuildDistrictName(DistrictNameData data, SeededRandom random)
     {
-        string descriptor = _selector.SelectFrom(data.Descriptors, random);
-        string locationType = _selector.SelectFrom(data.LocationTypes, random);
+        var descriptor = _selector.SelectFrom(data.Descriptors, random);
+        var locationType = _selector.SelectFrom(data.LocationTypes, random);
 
         return descriptor + " " + locationType;
     }
@@ -99,9 +99,9 @@ internal class NameBuilder
     /// <returns>A generated street name.</returns>
     public string BuildStreetName(StreetNameData data, SeededRandom random)
     {
-        string prefix = _selector.SelectFrom(data.Prefixes, random);
-        string core = _selector.SelectFrom(data.Cores, random);
-        string streetSuffix = _selector.SelectFrom(data.StreetSuffixes, random);
+        var prefix = _selector.SelectFrom(data.Prefixes, random);
+        var core = _selector.SelectFrom(data.Cores, random);
+        var streetSuffix = _selector.SelectFrom(data.StreetSuffixes, random);
 
         return prefix + core + " " + streetSuffix;
     }
@@ -114,9 +114,9 @@ internal class NameBuilder
     /// <returns>A generated faction name.</returns>
     public string BuildFactionName(FactionNameData data, SeededRandom random)
     {
-        string prefix = _selector.SelectFrom(data.Prefixes, random);
-        string core = _selector.SelectFrom(data.Cores, random);
-        string suffix = _selector.SelectFrom(data.Suffixes, random);
+        var prefix = _selector.SelectFrom(data.Prefixes, random);
+        var core = _selector.SelectFrom(data.Cores, random);
+        var suffix = _selector.SelectFrom(data.Suffixes, random);
 
         return prefix + " " + core + suffix;
     }

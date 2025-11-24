@@ -11,17 +11,17 @@ internal class FactionNameData
     /// Gets the prefix syllables for faction names.
     /// </summary>
     [JsonPropertyName("prefixes")]
-    public required string[] Prefixes { get; init; }
+    required public string[] Prefixes { get; init; }
 
     /// <summary>
     /// Gets the core syllables for faction names.
     /// </summary>
     [JsonPropertyName("cores")]
-    public required string[] Cores { get; init; }
+    required public string[] Cores { get; init; }
 
     /// <summary>
     /// Gets the suffix syllables for faction names.
     /// </summary>
     [JsonPropertyName("suffixes")]
-    public required string[] Suffixes { get; init; }
+    required public string[] Suffixes { get; init; }
 }

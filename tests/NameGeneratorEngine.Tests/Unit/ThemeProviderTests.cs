@@ -14,7 +14,7 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithValidData_ShouldNotThrow()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var themeData = CreateValidThemeData();
 
         // Act & Assert
@@ -26,7 +26,7 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithNullNpcMalePrefixes_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidNpcNames = new NpcNameData
@@ -34,8 +34,8 @@ public class ThemeProviderTests
             Male = new GenderNameData
             {
                 Prefixes = null!,
-                Cores = new[] { "core" },
-                Suffixes = new[] { "suffix" }
+                Cores = ["core"],
+                Suffixes = ["suffix"]
             },
             Female = baseData.NpcNames.Female,
             Neutral = baseData.NpcNames.Neutral
@@ -56,7 +56,7 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithEmptyNpcFemaleCores_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidNpcNames = new NpcNameData
@@ -64,9 +64,10 @@ public class ThemeProviderTests
             Male = baseData.NpcNames.Male,
             Female = new GenderNameData
             {
-                Prefixes = new[] { "prefix" },
-                Cores = Array.Empty<string>(),
-                Suffixes = new[] { "suffix" }
+                Prefixes = ["prefix"],
+                Cores = [
+                ],
+                Suffixes = ["suffix"]
             },
             Neutral = baseData.NpcNames.Neutral
         };
@@ -86,7 +87,7 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithWhitespaceInNpcNeutralSuffixes_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidNpcNames = new NpcNameData
@@ -95,9 +96,9 @@ public class ThemeProviderTests
             Female = baseData.NpcNames.Female,
             Neutral = new GenderNameData
             {
-                Prefixes = new[] { "prefix" },
-                Cores = new[] { "core" },
-                Suffixes = new[] { "suffix", "   ", "another" }
+                Prefixes = ["prefix"],
+                Cores = ["core"],
+                Suffixes = ["suffix", "   ", "another"]
             }
         };
         
@@ -109,14 +110,14 @@ public class ThemeProviderTests
         // Assert
         act.Should().Throw<InvalidOperationException>()
             .WithMessage("*Theme data validation failed*")
-            .WithMessage("*NPC Neutral Suffixes contains null or whitespace entries*");
+            .WithMessage("*NPC Neutral Suffixes contains invalid entries*");
     }
 
     [Fact]
     public void ValidateThemeData_WithMissingBuildingType_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         // Remove one building type
@@ -145,13 +146,14 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithEmptyBuildingGenericPrefixes_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidBuildingNames = new BuildingNameData
         {
             TypeData = baseData.BuildingNames.TypeData,
-            GenericPrefixes = Array.Empty<string>(),
+            GenericPrefixes = [
+            ],
             GenericSuffixes = baseData.BuildingNames.GenericSuffixes
         };
         
@@ -170,12 +172,13 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithEmptyCityPrefixes_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidCityNames = new CityNameData
         {
-            Prefixes = Array.Empty<string>(),
+            Prefixes = [
+            ],
             Cores = baseData.CityNames.Cores,
             Suffixes = baseData.CityNames.Suffixes
         };
@@ -195,12 +198,13 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithEmptyDistrictDescriptors_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidDistrictNames = new DistrictNameData
         {
-            Descriptors = Array.Empty<string>(),
+            Descriptors = [
+            ],
             LocationTypes = baseData.DistrictNames.LocationTypes
         };
         
@@ -219,14 +223,15 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithEmptyStreetSuffixes_ShouldThrowInvalidOperationException()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         var invalidStreetNames = new StreetNameData
         {
             Prefixes = baseData.StreetNames.Prefixes,
             Cores = baseData.StreetNames.Cores,
-            StreetSuffixes = Array.Empty<string>()
+            StreetSuffixes = [
+            ]
         };
         
         var themeData = CreateThemeDataWithStreetNames(invalidStreetNames);
@@ -244,7 +249,7 @@ public class ThemeProviderTests
     public void ValidateThemeData_WithMultipleErrors_ShouldIncludeAllErrorsInMessage()
     {
         // Arrange
-        var provider = new NameGeneratorEngine.ThemeData.ThemeProvider();
+        var provider = new ThemeData.ThemeProvider();
         var baseData = CreateValidThemeData();
         
         // Create multiple validation errors
@@ -252,9 +257,10 @@ public class ThemeProviderTests
         {
             Male = new GenderNameData
             {
-                Prefixes = Array.Empty<string>(),
-                Cores = new[] { "core" },
-                Suffixes = new[] { "suffix" }
+                Prefixes = [
+                ],
+                Cores = ["core"],
+                Suffixes = ["suffix"]
             },
             Female = baseData.NpcNames.Female,
             Neutral = baseData.NpcNames.Neutral
@@ -263,7 +269,8 @@ public class ThemeProviderTests
         var invalidCityNames = new CityNameData
         {
             Prefixes = baseData.CityNames.Prefixes,
-            Cores = Array.Empty<string>(),
+            Cores = [
+            ],
             Suffixes = baseData.CityNames.Suffixes
         };
         
@@ -292,20 +299,20 @@ public class ThemeProviderTests
     {
         var genderData = new GenderNameData
         {
-            Prefixes = new[] { "Pre" },
-            Cores = new[] { "Core" },
-            Suffixes = new[] { "Suf" }
+            Prefixes = ["Pre"],
+            Cores = ["Core"],
+            Suffixes = ["Suf"]
         };
 
         var buildingTypeData = new BuildingTypeData
         {
-            Prefixes = new[] { "Build" },
-            Descriptors = new[] { "Desc" },
-            Suffixes = new[] { "Suf" }
+            Prefixes = ["Build"],
+            Descriptors = ["Desc"],
+            Suffixes = ["Suf"]
         };
 
         var buildingTypes = new Dictionary<BuildingType, BuildingTypeData>();
-        foreach (BuildingType type in Enum.GetValues<BuildingType>())
+        foreach (var type in Enum.GetValues<BuildingType>())
         {
             buildingTypes[type] = buildingTypeData;
         }
@@ -322,31 +329,31 @@ public class ThemeProviderTests
             BuildingNames = new BuildingNameData
             {
                 TypeData = buildingTypes,
-                GenericPrefixes = new[] { "Generic" },
-                GenericSuffixes = new[] { "Building" }
+                GenericPrefixes = ["Generic"],
+                GenericSuffixes = ["Building"]
             },
             CityNames = new CityNameData
             {
-                Prefixes = new[] { "City" },
-                Cores = new[] { "Core" },
-                Suffixes = new[] { "Ville" }
+                Prefixes = ["City"],
+                Cores = ["Core"],
+                Suffixes = ["Ville"]
             },
             DistrictNames = new DistrictNameData
             {
-                Descriptors = new[] { "Old" },
-                LocationTypes = new[] { "District" }
+                Descriptors = ["Old"],
+                LocationTypes = ["District"]
             },
             StreetNames = new StreetNameData
             {
-                Prefixes = new[] { "Main" },
-                Cores = new[] { "Oak" },
-                StreetSuffixes = new[] { "Street" }
+                Prefixes = ["Main"],
+                Cores = ["Oak"],
+                StreetSuffixes = ["Street"]
             },
             FactionNames = new FactionNameData
             {
-                Prefixes = new[] { "Mega" },
-                Cores = new[] { "Corp" },
-                Suffixes = new[] { "" }
+                Prefixes = ["Mega"],
+                Cores = ["Corp"],
+                Suffixes = [""]
             }
         };
     }

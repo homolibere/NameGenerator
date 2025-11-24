@@ -20,7 +20,7 @@ internal class SyllableSelector
             return string.Empty;
         }
 
-        int index = random.Next(options.Length);
+        var index = random.Next(options.Length);
         return options[index];
     }
 
@@ -39,7 +39,7 @@ internal class SyllableSelector
         }
 
         var results = new string[count];
-        for (int i = 0; i < count; i++)
+        for (var i = 0; i < count; i++)
         {
             results[i] = SelectFrom(options, random);
         }

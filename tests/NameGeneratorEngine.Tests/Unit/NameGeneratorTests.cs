@@ -16,7 +16,7 @@ public class NameGeneratorTests
     public void Constructor_WithSeed_ShouldUseThatSeed()
     {
         // Arrange
-        int expectedSeed = 12345;
+        var expectedSeed = 12345;
 
         // Act
         var generator = new NameGenerator(expectedSeed);
@@ -64,7 +64,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(seed);
 
         // Act
-        int actualSeed = generator.Seed;
+        var actualSeed = generator.Seed;
 
         // Assert
         actualSeed.Should().Be(seed);
@@ -81,7 +81,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateNpcName(Theme.Cyberpunk, Gender.Male);
+        var name = generator.GenerateNpcName(Theme.Cyberpunk, Gender.Male);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -94,7 +94,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateNpcName(Theme.Elves);
+        var name = generator.GenerateNpcName(Theme.Elves);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -107,7 +107,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateBuildingName(Theme.Orcs, BuildingType.Commercial);
+        var name = generator.GenerateBuildingName(Theme.Orcs, BuildingType.Commercial);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -120,7 +120,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateBuildingName(Theme.Cyberpunk);
+        var name = generator.GenerateBuildingName(Theme.Cyberpunk);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -133,7 +133,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateCityName(Theme.Elves);
+        var name = generator.GenerateCityName(Theme.Elves);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -146,7 +146,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateDistrictName(Theme.Orcs);
+        var name = generator.GenerateDistrictName(Theme.Orcs);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -159,7 +159,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateStreetName(Theme.Cyberpunk);
+        var name = generator.GenerateStreetName(Theme.Cyberpunk);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -172,7 +172,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateFactionName(Theme.Cyberpunk);
+        var name = generator.GenerateFactionName(Theme.Cyberpunk);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -203,7 +203,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateNpcName(theme);
+        var name = generator.GenerateNpcName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -219,7 +219,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateBuildingName(theme);
+        var name = generator.GenerateBuildingName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -235,7 +235,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateCityName(theme);
+        var name = generator.GenerateCityName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -251,7 +251,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateDistrictName(theme);
+        var name = generator.GenerateDistrictName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -267,7 +267,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateStreetName(theme);
+        var name = generator.GenerateStreetName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -283,7 +283,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateFactionName(theme);
+        var name = generator.GenerateFactionName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -303,7 +303,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateNpcName(Theme.Cyberpunk, gender);
+        var name = generator.GenerateNpcName(Theme.Cyberpunk, gender);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -325,7 +325,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateNpcName(theme, gender);
+        var name = generator.GenerateNpcName(theme, gender);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -349,7 +349,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateBuildingName(Theme.Cyberpunk, buildingType);
+        var name = generator.GenerateBuildingName(Theme.Cyberpunk, buildingType);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -383,7 +383,7 @@ public class NameGeneratorTests
         var generator = new NameGenerator(42);
 
         // Act
-        string name = generator.GenerateBuildingName(theme, buildingType);
+        var name = generator.GenerateBuildingName(theme, buildingType);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -402,9 +402,9 @@ public class NameGeneratorTests
         const int nameCount = 50;
 
         // Act
-        for (int i = 0; i < nameCount; i++)
+        for (var i = 0; i < nameCount; i++)
         {
-            string name = generator.GenerateFactionName(Theme.Cyberpunk);
+            var name = generator.GenerateFactionName(Theme.Cyberpunk);
             generatedNames.Add(name);
         }
 
@@ -421,8 +421,8 @@ public class NameGeneratorTests
         var generator2 = new NameGenerator(seed);
 
         // Act
-        string name1 = generator1.GenerateFactionName(Theme.Elves);
-        string name2 = generator2.GenerateFactionName(Theme.Elves);
+        var name1 = generator1.GenerateFactionName(Theme.Elves);
+        var name2 = generator2.GenerateFactionName(Theme.Elves);
 
         // Assert
         name1.Should().Be(name2, "same seed should produce identical faction names");
@@ -439,7 +439,7 @@ public class NameGeneratorTests
         var names2 = new List<string>();
 
         // Act
-        for (int i = 0; i < 10; i++)
+        for (var i = 0; i < 10; i++)
         {
             names1.Add(generator1.GenerateFactionName(Theme.Orcs));
             names2.Add(generator2.GenerateFactionName(Theme.Orcs));

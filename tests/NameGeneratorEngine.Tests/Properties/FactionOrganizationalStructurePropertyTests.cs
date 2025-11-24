@@ -11,7 +11,7 @@ namespace NameGeneratorEngine.Tests.Properties;
 public class FactionOrganizationalStructurePropertyTests
 {
     // Valid organizational structure terms for each theme based on the theme JSON files
-    private static readonly Dictionary<Theme, HashSet<string>> ValidOrganizationalTerms = new()
+    private static readonly Dictionary<Theme, HashSet<string>> ValidOrganizationalTerms = new Dictionary<Theme, HashSet<string>>
     {
         {
             Theme.Cyberpunk,
@@ -64,9 +64,9 @@ public class FactionOrganizationalStructurePropertyTests
             foreach (var theme in Enum.GetValues<Theme>())
             {
                 // Generate multiple faction names to ensure consistency
-                for (int i = 0; i < 10; i++)
+                for (var i = 0; i < 10; i++)
                 {
-                    string factionName = generator.GenerateFactionName(theme);
+                    var factionName = generator.GenerateFactionName(theme);
 
                     // Verify the faction name is not null or empty
                     factionName.Should().NotBeNullOrWhiteSpace(
@@ -74,7 +74,7 @@ public class FactionOrganizationalStructurePropertyTests
 
                     // Check if the faction name contains at least one valid organizational term for this theme
                     var validTerms = ValidOrganizationalTerms[theme];
-                    bool containsValidTerm = validTerms.Any(term =>
+                    var containsValidTerm = validTerms.Any(term =>
                         factionName.Contains(term, StringComparison.OrdinalIgnoreCase));
 
                     containsValidTerm.Should().BeTrue(
@@ -106,7 +106,7 @@ public class FactionOrganizationalStructurePropertyTests
 
                 // Generate multiple faction names
                 var factionNames = new List<string>();
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     factionNames.Add(generator.GenerateFactionName(theme));
                 }
@@ -114,7 +114,7 @@ public class FactionOrganizationalStructurePropertyTests
                 // Verify all generated names have valid organizational terms
                 foreach (var factionName in factionNames)
                 {
-                    bool hasValidTerm = validTerms.Any(term =>
+                    var hasValidTerm = validTerms.Any(term =>
                         factionName.Contains(term, StringComparison.OrdinalIgnoreCase));
 
                     hasValidTerm.Should().BeTrue(
