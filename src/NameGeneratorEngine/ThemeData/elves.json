@@ -1,0 +1,75 @@
+{
+  "theme": "Elves",
+  "npcNames": {
+    "male": {
+      "prefixes": ["Thel", "Gal", "Lir", "Ael", "Fin", "Cel", "Sil", "Hal", "Elen", "Fael", "Luth", "Mael", "Nael", "Rael", "Thal", "Vael", "Elr", "Glor", "Leg", "Eol", "Gil", "Ing"],
+      "cores": ["an", "or", "in", "en", "on", "ar", "ir", "ion", "ien", "ian", "orn", "ind", "ond", "and", "end", "ath", "eth", "oth", "ith", "ael"],
+      "suffixes": ["dor", "dir", "dan", "din", "wen", "wyn", "wil", "mir", "thir", "las", "ion", "iel", "ael", "rion", "riel", "dil", "thil", "ril", "nil", ""]
+    },
+    "female": {
+      "prefixes": ["Ar", "Gal", "Lir", "Ael", "Cel", "Sil", "Elw", "Idril", "Nim", "Mel", "Luth", "Mir", "Nien", "Yav", "Elv", "Fin", "Tin", "Vani", "Ior", "Eal", "Loth", "Mor"],
+      "cores": ["wen", "iel", "ien", "ith", "eth", "ath", "iel", "ien", "anna", "ella", "ara", "ira", "ora", "ura", "ala", "ila", "ola", "ula", "enna", "inna"],
+      "suffixes": ["", "wen", "iel", "ien", "ith", "eth", "ath", "riel", "rwen", "thiel", "las", "dis", "nis", "lis", "ris", "dil", "nil", "ril", "thil", ""]
+    },
+    "neutral": {
+      "prefixes": ["El", "Sil", "Gal", "Cel", "Lir", "Fin", "Hal", "Ael", "Thel", "Mel", "Nim", "Luth", "Mir", "Fael", "Vael", "Nael", "Rael", "Mael", "Thal", "Eol", "Gil", "Leg"],
+      "cores": ["rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond", "rond"],
+      "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+    }
+  },
+  "buildingNames": {
+    "typeData": {
+      "Residential": {
+        "prefixes": ["Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight", "Dawn", "Dusk", "Emerald", "Sapphire", "Pearl", "Ivory", "Marble", "Alabaster", "Opal", "Jade", "Amber", "Rose", "Lily", "Willow"],
+        "descriptors": ["Hall", "Manor", "Estate", "Dwelling", "Residence", "Haven", "Sanctuary", "Retreat", "Lodge", "Cottage", "Villa", "Palace", "Court", "Chambers", "Quarters", "Abode", "Home", "House", "Tower", "Spire"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Commercial": {
+        "prefixes": ["Elven", "Ancient", "Eternal", "Timeless", "Noble", "Royal", "Grand", "Majestic", "Elegant", "Graceful", "Refined", "Exquisite", "Pristine", "Radiant", "Luminous", "Celestial", "Divine", "Sacred", "Blessed", "Enchanted"],
+        "descriptors": ["Trading", "Commerce", "Exchange", "Market", "Bazaar", "Emporium", "Gallery", "Atelier", "Workshop", "Studio", "Craftworks", "Artisan", "Guild", "House", "Consortium", "Company", "Enterprise", "Establishment", "Merchant", "Trader"],
+        "suffixes": ["", " House", " Hall", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Industrial": {
+        "prefixes": ["Ancient", "Elven", "Master", "Grand", "Royal", "Noble", "Sacred", "Blessed", "Enchanted", "Mystical", "Arcane", "Ethereal", "Celestial", "Divine", "Eternal", "Timeless", "Legendary", "Fabled", "Renowned", "Illustrious"],
+        "descriptors": ["Forge", "Smithy", "Workshop", "Craftworks", "Foundry", "Mill", "Works", "Manufactory", "Atelier", "Studio", "Laboratory", "Scriptorium", "Bindery", "Brewery", "Distillery", "Winery", "Tannery", "Weaving", "Pottery", "Glassworks"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Government": {
+        "prefixes": ["High", "Royal", "Noble", "Grand", "Elder", "Ancient", "Sacred", "Blessed", "Eternal", "Timeless", "Sovereign", "Imperial", "Regal", "Majestic", "Supreme", "Divine", "Celestial", "Exalted", "Venerable", "Illustrious"],
+        "descriptors": ["Council", "Court", "Hall", "Chamber", "Palace", "Throne", "Seat", "Assembly", "Parliament", "Senate", "Tribunal", "Judiciary", "Ministry", "Office", "Bureau", "Authority", "Administration", "Governance", "Chancellery", "Secretariat"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Entertainment": {
+        "prefixes": ["Starlight", "Moonlit", "Twilight", "Dawn", "Dusk", "Silver", "Golden", "Crystal", "Emerald", "Sapphire", "Pearl", "Radiant", "Luminous", "Celestial", "Ethereal", "Mystical", "Enchanted", "Magical", "Wondrous", "Marvelous"],
+        "descriptors": ["Theater", "Amphitheater", "Pavilion", "Garden", "Grove", "Glade", "Meadow", "Hall", "Gallery", "Museum", "Library", "Archive", "Conservatory", "Observatory", "Planetarium", "Auditorium", "Arena", "Stage", "Performance", "Concert"],
+        "suffixes": ["", " Hall", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Medical": {
+        "prefixes": ["Healing", "Sacred", "Blessed", "Divine", "Celestial", "Ethereal", "Mystical", "Enchanted", "Ancient", "Eternal", "Timeless", "Noble", "Grand", "Royal", "High", "Elder", "Wise", "Gentle", "Tender", "Merciful"],
+        "descriptors": ["House", "Hall", "Sanctuary", "Haven", "Refuge", "Retreat", "Infirmary", "Hospice", "Clinic", "Hospital", "Sanatorium", "Spa", "Baths", "Springs", "Waters", "Grove", "Garden", "Glade", "Temple", "Shrine"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Educational": {
+        "prefixes": ["Ancient", "Eternal", "Timeless", "Sacred", "Blessed", "Divine", "Celestial", "Mystical", "Arcane", "Ethereal", "Noble", "Grand", "Royal", "High", "Elder", "Wise", "Learned", "Scholarly", "Academic", "Intellectual"],
+        "descriptors": ["Academy", "University", "College", "School", "Institute", "Library", "Archive", "Scriptorium", "Study", "Hall", "Tower", "Spire", "Observatory", "Conservatory", "Athenaeum", "Lyceum", "Seminary", "Monastery", "Cloister", "Sanctuary"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      }
+    },
+    "genericPrefixes": ["Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight", "Ancient", "Eternal", "Noble", "Grand", "Elven", "Sacred", "Blessed", "Radiant", "Luminous", "Celestial", "Ethereal", "Mystical", "Enchanted", "Magical"],
+    "genericSuffixes": ["Hall", "Tower", "Spire", "Palace", "Manor", "House", "Building", "Structure", "Edifice", "Monument", "Sanctuary", "Haven", "Retreat", "Lodge", "Court", "Estate", "Villa", "Residence", "Dwelling", "Abode"]
+  },
+  "cityNames": {
+    "prefixes": ["Sil", "Gal", "Loth", "Riv", "Imla", "Mith", "Gond", "Elr", "Cel", "Thran", "Nim", "Lir", "Ael", "Fin", "Hal", "Mel", "Mir", "Fael", "Vael", "Eol"],
+    "cores": ["mar", "dor", "rond", "ond", "las", "rien", "lorien", "endil", "ador", "amor", "anor", "ithil", "ennor", "ellond", "athel", "ethel", "ithel", "othel", "uthel", "arnen"],
+    "suffixes": ["", "ion", "ien", "iel", "ath", "eth", "oth", "ith", "", "", "", "", "", "", "", "", "", "", "", ""]
+  },
+  "districtNames": {
+    "descriptors": ["Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight", "Dawn", "Dusk", "Emerald", "Sapphire", "Pearl", "Ivory", "Marble", "Rose", "Lily", "Willow", "Oak", "Elm", "Birch", "Cedar"],
+    "locationTypes": ["Quarter", "District", "Ward", "Grove", "Glade", "Meadow", "Garden", "Court", "Terrace", "Plaza", "Square", "Circle", "Green", "Park", "Commons", "Fields", "Heights", "Vale", "Dell", "Glen"]
+  },
+  "streetNames": {
+    "prefixes": ["Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight", "Dawn", "Dusk", "Emerald", "Sapphire", "Pearl", "Ivory", "Marble", "Rose", "Lily", "Willow", "Oak", "Elm", "Birch", "Cedar"],
+    "cores": ["Leaf", "Blossom", "Petal", "Branch", "Root", "Vine", "Fern", "Moss", "Brook", "Stream", "River", "Spring", "Pool", "Lake", "Pond", "Fountain", "Cascade", "Falls", "Rapids", "Current"],
+    "streetSuffixes": ["Path", "Way", "Lane", "Walk", "Trail", "Road", "Avenue", "Boulevard", "Drive", "Court", "Place", "Terrace", "Circle", "Grove", "Glade", "Green", "Commons", "Promenade", "Esplanade", "Passage"]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "theme": "Cyberpunk",
+  "npcNames": {
+    "male": {
+      "prefixes": ["Zer", "Nex", "Kry", "Vex", "Dax", "Ryx", "Jax", "Kade", "Zane", "Raze", "Byte", "Hex", "Syn", "Neo", "Cyph", "Volt", "Nyx", "Kron", "Blaze", "Axel", "Drex", "Flux"],
+      "cores": ["on", "ax", "or", "us", "en", "ix", "ar", "ex", "yn", "er", "os", "an", "ox", "ur", "yx", "al", "in", "az", "ek", "om"],
+      "suffixes": ["", "o", "us", "x", "n", "r", "k", "z", "s", "", "", "x", "", "n", "", "", "s", "", "", ""]
+    },
+    "female": {
+      "prefixes": ["Cy", "Nyx", "Lex", "Zara", "Nova", "Lyra", "Vex", "Kira", "Raven", "Echo", "Pixel", "Neon", "Syn", "Vera", "Jade", "Onyx", "Sable", "Cipher", "Astra", "Vega", "Luna", "Iris"],
+      "cores": ["ra", "la", "na", "xa", "va", "ka", "sa", "da", "ma", "ta", "ria", "lyn", "ssa", "nna", "lia", "ara", "ina", "ela", "aya", "ora"],
+      "suffixes": ["", "x", "n", "s", "", "a", "", "", "h", "", "", "", "x", "", "", "n", "", "", "", ""]
+    },
+    "neutral": {
+      "prefixes": ["Byte", "Hex", "Pix", "Syn", "Neo", "Digi", "Nano", "Quark", "Bit", "Code", "Data", "Link", "Node", "Port", "Chip", "Wire", "Grid", "Net", "Core", "Pulse", "Spark", "Glitch"],
+      "cores": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+      "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+    }
+  },
+  "buildingNames": {
+    "typeData": {
+      "Residential": {
+        "prefixes": ["Cyber", "Neo", "Tech", "Digital", "Quantum", "Neural", "Plasma", "Chrome", "Neon", "Silicon", "Carbon", "Titanium", "Apex", "Vertex", "Zenith", "Nexus", "Helix", "Matrix", "Vector", "Prism"],
+        "descriptors": ["Heights", "Towers", "Plaza", "Complex", "Residences", "Apartments", "Suites", "Habitats", "Arcology", "Blocks", "Spires", "Terraces", "Gardens", "Courts", "Estates", "Lofts", "Condos", "Units", "Quarters", "Dwellings"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Commercial": {
+        "prefixes": ["Mega", "Omni", "Syn", "Quantum", "Hyper", "Ultra", "Macro", "Global", "Trans", "Inter", "Multi", "Poly", "Meta", "Dyna", "Techno", "Cyber", "Nano", "Giga", "Tera", "Peta"],
+        "descriptors": ["Corp", "Industries", "Systems", "Dynamics", "Solutions", "Technologies", "Enterprises", "Group", "Holdings", "Ventures", "Labs", "Works", "Innovations", "Services", "Networks", "Logistics", "Trading", "Commerce", "Markets", "Exchange"],
+        "suffixes": ["", " HQ", " Center", " Tower", " Plaza", "", "", " Building", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Industrial": {
+        "prefixes": ["Heavy", "Mega", "Titan", "Forge", "Steel", "Iron", "Power", "Energy", "Fusion", "Reactor", "Factory", "Plant", "Mill", "Works", "Foundry", "Refinery", "Processing", "Manufacturing", "Production", "Assembly"],
+        "descriptors": ["Works", "Industries", "Manufacturing", "Complex", "Facility", "Plant", "Station", "Hub", "Center", "Zone", "District", "Sector", "Operations", "Production", "Processing", "Fabrication", "Assembly", "Foundry", "Mill", "Forge"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Government": {
+        "prefixes": ["Central", "Federal", "Municipal", "City", "Metro", "Urban", "District", "Regional", "Sector", "Zone", "Public", "Civic", "State", "National", "Corporate", "Authority", "Council", "Bureau", "Agency", "Department"],
+        "descriptors": ["Authority", "Bureau", "Office", "Center", "Complex", "Building", "Hall", "Tower", "Headquarters", "Administration", "Ministry", "Department", "Agency", "Commission", "Council", "Board", "Institute", "Facility", "Station", "Command"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Entertainment": {
+        "prefixes": ["Neon", "Chrome", "Electric", "Cyber", "Virtual", "Holo", "Synth", "Digital", "Plasma", "Laser", "Pulse", "Wave", "Beat", "Rhythm", "Sound", "Vision", "Dream", "Fantasy", "Paradise", "Euphoria"],
+        "descriptors": ["Club", "Lounge", "Arena", "Theater", "Cinema", "Arcade", "Casino", "Palace", "Dome", "Center", "Complex", "Plaza", "Zone", "District", "Paradise", "World", "Experience", "Venue", "Stage", "Hall"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Medical": {
+        "prefixes": ["Cyber", "Bio", "Med", "Neuro", "Gene", "Nano", "Quantum", "Advanced", "Future", "Tech", "Digital", "Virtual", "Synthetic", "Enhanced", "Augmented", "Integrated", "Precision", "Optimal", "Prime", "Elite"],
+        "descriptors": ["Medical", "Health", "Clinic", "Hospital", "Center", "Institute", "Laboratory", "Facility", "Complex", "Care", "Wellness", "Treatment", "Surgery", "Diagnostics", "Therapeutics", "Rehabilitation", "Recovery", "Enhancement", "Augmentation", "Modification"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Educational": {
+        "prefixes": ["Cyber", "Tech", "Digital", "Virtual", "Neural", "Quantum", "Advanced", "Future", "Neo", "Meta", "Hyper", "Ultra", "Elite", "Prime", "Apex", "Vertex", "Nexus", "Core", "Central", "Global"],
+        "descriptors": ["Academy", "Institute", "University", "College", "School", "Learning", "Education", "Training", "Development", "Research", "Studies", "Sciences", "Technology", "Engineering", "Innovation", "Knowledge", "Wisdom", "Enlightenment", "Discovery", "Advancement"],
+        "suffixes": ["", " Center", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      }
+    },
+    "genericPrefixes": ["Neo", "Cyber", "Tech", "Digital", "Quantum", "Neural", "Plasma", "Chrome", "Neon", "Silicon", "Carbon", "Titanium", "Apex", "Vertex", "Zenith", "Nexus", "Helix", "Matrix", "Vector", "Prism"],
+    "genericSuffixes": ["Building", "Tower", "Complex", "Center", "Plaza", "Structure", "Facility", "Hub", "Station", "Block", "Unit", "Sector", "Zone", "District", "Area", "Space", "Place", "Point", "Node", "Site"]
+  },
+  "cityNames": {
+    "prefixes": ["Neo", "Mega", "Cyber", "Tech", "Night", "Dark", "New", "Nova", "Quantum", "Digital", "Neural", "Chrome", "Neon", "Silicon", "Carbon", "Plasma", "Electric", "Synthetic", "Virtual", "Hyper"],
+    "cores": ["City", "Polis", "Haven", "Port", "Prime", "Central", "Metro", "Urban", "Sector", "Zone", "District", "Complex", "Nexus", "Hub", "Core", "Center", "Point", "Node", "Station", "Terminal"],
+    "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+  },
+  "districtNames": {
+    "descriptors": ["Chrome", "Neon", "Silicon", "Platinum", "Carbon", "Titanium", "Steel", "Iron", "Copper", "Bronze", "Electric", "Digital", "Cyber", "Neural", "Quantum", "Plasma", "Laser", "Hologram", "Virtual", "Synthetic"],
+    "locationTypes": ["District", "Quarter", "Sector", "Zone", "Block", "Area", "Region", "Territory", "Division", "Section", "Precinct", "Ward", "Neighborhood", "Complex", "Enclave", "Hub", "Center", "Core", "Node", "Point"]
+  },
+  "streetNames": {
+    "prefixes": ["Data", "Cyber", "Tech", "Neural", "Quantum", "Digital", "Virtual", "Synthetic", "Electric", "Plasma", "Laser", "Neon", "Chrome", "Silicon", "Carbon", "Network", "Circuit", "Binary", "Hex", "Code"],
+    "cores": ["Link", "Way", "Path", "Line", "Grid", "Net", "Web", "Loop", "Ring", "Circle", "Route", "Track", "Lane", "Run", "Pass", "Crossing", "Junction", "Intersection", "Connector", "Bridge"],
+    "streetSuffixes": ["Street", "Avenue", "Boulevard", "Road", "Drive", "Way", "Path", "Lane", "Court", "Place", "Terrace", "Circle", "Loop", "Plaza", "Square", "Parkway", "Highway", "Expressway", "Freeway", "Corridor"]
+  }
+}

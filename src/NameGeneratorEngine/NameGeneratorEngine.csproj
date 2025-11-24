@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NameGeneratorEngine</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>homolibere@gmail.com</Authors>
+    <Description>A procedural name generator library supporting multiple themes and entity types with deterministic, seeded generation.</Description>
+    <PackageTags>name-generator;procedural;game-dev;worldbuilding</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ThemeData\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="NameGeneratorEngine.Tests" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,75 @@
+{
+  "theme": "Orcs",
+  "npcNames": {
+    "male": {
+      "prefixes": ["Grok", "Thrak", "Krag", "Durg", "Urg", "Gruk", "Brok", "Zog", "Ghor", "Morg", "Throg", "Krog", "Drog", "Grak", "Brak", "Zrak", "Grum", "Thrum", "Krum", "Drak", "Graz", "Thrax"],
+      "cores": ["", "ug", "ok", "ak", "uk", "og", "ag", "ug", "ork", "ark", "urk", "agh", "ugh", "ogh", "", "", "", "", "", ""],
+      "suffixes": ["", "", "", "oth", "ath", "ugh", "ogh", "agh", "uk", "ok", "ak", "", "", "", "", "", "", "", "", ""]
+    },
+    "female": {
+      "prefixes": ["Grak", "Thrak", "Krag", "Durg", "Urg", "Gruk", "Brok", "Zog", "Ghor", "Morg", "Shrak", "Vrak", "Narg", "Graz", "Braz", "Zrak", "Grum", "Thrum", "Krum", "Drak", "Shag", "Vrag"],
+      "cores": ["a", "u", "o", "ag", "ug", "og", "ak", "uk", "ok", "ash", "ush", "osh", "ath", "uth", "oth", "", "", "", "", ""],
+      "suffixes": ["", "", "", "a", "u", "ash", "ush", "osh", "ath", "uth", "oth", "", "", "", "", "", "", "", "", ""]
+    },
+    "neutral": {
+      "prefixes": ["Grok", "Thrak", "Krag", "Durg", "Urg", "Gruk", "Brok", "Zog", "Ghor", "Morg", "Throg", "Krog", "Drog", "Grak", "Brak", "Zrak", "Grum", "Thrum", "Krum", "Drak", "Graz", "Thrax"],
+      "cores": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+      "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+    }
+  },
+  "buildingNames": {
+    "typeData": {
+      "Residential": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Horn", "Spike", "Blade", "Axe", "Hammer", "Forge", "Fire", "Smoke", "Ash", "Ember"],
+        "descriptors": ["Hall", "Den", "Pit", "Lair", "Hovel", "Hut", "Shack", "Barracks", "Quarters", "Lodging", "Dwelling", "Shelter", "Refuge", "Hideout", "Stronghold", "Keep", "Fort", "Hold", "Warren", "Burrow"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Commercial": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Grog", "Meat", "Hide", "Leather", "Metal", "Scrap", "Junk", "Loot", "Plunder", "Spoils"],
+        "descriptors": ["Market", "Bazaar", "Trading", "Exchange", "Shop", "Store", "Stall", "Stand", "Post", "Depot", "Warehouse", "Stockpile", "Cache", "Hoard", "Vault", "Treasury", "Armory", "Arsenal", "Forge", "Smithy"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Industrial": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Fire", "Smoke", "Ash", "Ember", "Coal", "Slag", "Ore", "Metal", "Steel", "Bronze", "Copper", "Tin", "Lead", "Zinc"],
+        "descriptors": ["Forge", "Foundry", "Smithy", "Workshop", "Factory", "Mill", "Works", "Pit", "Mine", "Quarry", "Kiln", "Furnace", "Smelter", "Refinery", "Plant", "Yard", "Shop", "Shed", "Depot", "Facility"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Government": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Chief", "Boss", "Warlord", "Commander", "General", "Captain", "Leader", "Ruler", "King", "Lord"],
+        "descriptors": ["Hall", "Keep", "Fort", "Fortress", "Stronghold", "Citadel", "Tower", "Throne", "Court", "Council", "Command", "Headquarters", "Center", "Post", "Station", "Outpost", "Garrison", "Barracks", "Camp", "Base"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Entertainment": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Grog", "Ale", "Mead", "Rum", "Brew", "Fight", "Brawl", "Battle", "Combat", "Duel"],
+        "descriptors": ["Pit", "Arena", "Ring", "Hall", "Den", "Tavern", "Inn", "Bar", "Pub", "Alehouse", "Brewhouse", "Lodge", "Club", "House", "Joint", "Dive", "Hole", "Dump", "Shack", "Hovel"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Medical": {
+        "prefixes": ["Blood", "Bone", "Flesh", "Wound", "Scar", "Pain", "Hurt", "Sick", "Plague", "Disease", "Rot", "Decay", "Death", "Corpse", "Skull", "Shaman", "Witch", "Healer", "Medicine", "Cure"],
+        "descriptors": ["Hut", "Shack", "Den", "Lair", "Pit", "Hole", "Cave", "Grotto", "Cavern", "Chamber", "Room", "Hall", "House", "Lodge", "Tent", "Shelter", "Refuge", "Sanctuary", "Haven", "Retreat"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      },
+      "Educational": {
+        "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Shaman", "Witch", "Elder", "Ancient", "Old", "Wise", "Sage", "Master", "Teacher", "Mentor"],
+        "descriptors": ["Hall", "Den", "Pit", "Cave", "Grotto", "Cavern", "Chamber", "Room", "House", "Lodge", "Tent", "Hut", "Shack", "School", "Academy", "Training", "Learning", "Teaching", "Study", "Library"],
+        "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+      }
+    },
+    "genericPrefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Horn", "Spike", "Blade", "Axe", "Hammer", "Fire", "Smoke", "Ash", "Ember", "Coal"],
+    "genericSuffixes": ["Hall", "Keep", "Fort", "Tower", "Hold", "Stronghold", "Den", "Pit", "Lair", "Cave", "Grotto", "Cavern", "Hut", "Shack", "Lodge", "House", "Building", "Structure", "Place", "Post"]
+  },
+  "cityNames": {
+    "prefixes": ["Grok", "Thrak", "Krag", "Durg", "Urg", "Gruk", "Brok", "Zog", "Ghor", "Morg", "Throg", "Krog", "Drog", "Grak", "Brak", "Zrak", "Grum", "Thrum", "Krum", "Drak"],
+    "cores": ["nar", "dur", "gul", "mor", "dor", "gor", "bor", "zor", "thor", "kor", "grim", "drim", "krim", "brim", "zrim", "thrim", "grath", "drath", "krath", "brath"],
+    "suffixes": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+  },
+  "districtNames": {
+    "descriptors": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Fire", "Smoke", "Ash", "Ember", "Coal", "Slag", "Ore", "Metal", "Steel", "Bronze"],
+    "locationTypes": ["Quarter", "District", "Ward", "Sector", "Zone", "Area", "Region", "Territory", "Domain", "Realm", "Pit", "Den", "Lair", "Hold", "Keep", "Fort", "Post", "Camp", "Base", "Outpost"]
+  },
+  "streetNames": {
+    "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Fire", "Smoke", "Ash", "Ember", "Coal", "Slag", "Ore", "Metal", "Steel", "Bronze"],
+    "cores": ["Gut", "Gash", "Slash", "Hack", "Chop", "Smash", "Crush", "Break", "Crack", "Split", "Rend", "Tear", "Rip", "Cut", "Slice", "Cleave", "Sever", "Sunder", "Shatter", "Splinter"],
+    "streetSuffixes": ["Way", "Path", "Road", "Trail", "Track", "Route", "Pass", "Passage", "Alley", "Lane", "Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Row", "Walk", "Run", "March"]
+  }
+}
