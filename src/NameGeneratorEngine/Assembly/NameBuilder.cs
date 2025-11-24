@@ -105,4 +105,19 @@ internal class NameBuilder
 
         return prefix + core + " " + streetSuffix;
     }
+
+    /// <summary>
+    /// Builds a faction name from faction-specific data.
+    /// </summary>
+    /// <param name="data">The faction name data.</param>
+    /// <param name="random">The seeded random generator.</param>
+    /// <returns>A generated faction name.</returns>
+    public string BuildFactionName(FactionNameData data, SeededRandom random)
+    {
+        string prefix = _selector.SelectFrom(data.Prefixes, random);
+        string core = _selector.SelectFrom(data.Cores, random);
+        string suffix = _selector.SelectFrom(data.Suffixes, random);
+
+        return prefix + " " + core + suffix;
+    }
 }

@@ -274,7 +274,8 @@ public class ThemeProviderTests
             BuildingNames = baseData.BuildingNames,
             CityNames = invalidCityNames,
             DistrictNames = baseData.DistrictNames,
-            StreetNames = baseData.StreetNames
+            StreetNames = baseData.StreetNames,
+            FactionNames = baseData.FactionNames
         };
 
         // Act
@@ -340,6 +341,12 @@ public class ThemeProviderTests
                 Prefixes = new[] { "Main" },
                 Cores = new[] { "Oak" },
                 StreetSuffixes = new[] { "Street" }
+            },
+            FactionNames = new FactionNameData
+            {
+                Prefixes = new[] { "Mega" },
+                Cores = new[] { "Corp" },
+                Suffixes = new[] { "" }
             }
         };
     }
@@ -354,7 +361,8 @@ public class ThemeProviderTests
             BuildingNames = baseData.BuildingNames,
             CityNames = baseData.CityNames,
             DistrictNames = baseData.DistrictNames,
-            StreetNames = baseData.StreetNames
+            StreetNames = baseData.StreetNames,
+            FactionNames = baseData.FactionNames
         };
     }
 
@@ -368,7 +376,8 @@ public class ThemeProviderTests
             BuildingNames = buildingNames,
             CityNames = baseData.CityNames,
             DistrictNames = baseData.DistrictNames,
-            StreetNames = baseData.StreetNames
+            StreetNames = baseData.StreetNames,
+            FactionNames = baseData.FactionNames
         };
     }
 
@@ -382,7 +391,8 @@ public class ThemeProviderTests
             BuildingNames = baseData.BuildingNames,
             CityNames = cityNames,
             DistrictNames = baseData.DistrictNames,
-            StreetNames = baseData.StreetNames
+            StreetNames = baseData.StreetNames,
+            FactionNames = baseData.FactionNames
         };
     }
 
@@ -396,7 +406,8 @@ public class ThemeProviderTests
             BuildingNames = baseData.BuildingNames,
             CityNames = baseData.CityNames,
             DistrictNames = districtNames,
-            StreetNames = baseData.StreetNames
+            StreetNames = baseData.StreetNames,
+            FactionNames = baseData.FactionNames
         };
     }
 
@@ -410,7 +421,8 @@ public class ThemeProviderTests
             BuildingNames = baseData.BuildingNames,
             CityNames = baseData.CityNames,
             DistrictNames = baseData.DistrictNames,
-            StreetNames = streetNames
+            StreetNames = streetNames,
+            FactionNames = baseData.FactionNames
         };
     }
 }

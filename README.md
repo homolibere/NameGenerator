@@ -6,7 +6,7 @@ A C# library for procedural name generation supporting multiple themes and entit
 
 - **Deterministic Generation**: Uses seed values to produce reproducible name sequences across executions
 - **Multiple Themes**: Supports Cyberpunk, Elves, and Orcs themes with distinct naming conventions
-- **Entity Types**: Generates names for NPCs, buildings, cities, districts, and streets
+- **Entity Types**: Generates names for NPCs, buildings, cities, districts, streets, and factions
 - **Duplicate Prevention**: Ensures unique names within a generation session
 - **Gender Support**: Generate NPC names with male, female, or neutral gender options
 - **Building Types**: Generate contextually appropriate building names (residential, commercial, industrial, government, entertainment, medical, educational)
@@ -50,12 +50,14 @@ string cityName = generator.GenerateCityName(Theme.Elves);
 string buildingName = generator.GenerateBuildingName(Theme.Orcs, BuildingType.Commercial);
 string districtName = generator.GenerateDistrictName(Theme.Cyberpunk);
 string streetName = generator.GenerateStreetName(Theme.Elves);
+string factionName = generator.GenerateFactionName(Theme.Cyberpunk);
 
 Console.WriteLine($"NPC: {npcName}");
 Console.WriteLine($"City: {cityName}");
 Console.WriteLine($"Building: {buildingName}");
 Console.WriteLine($"District: {districtName}");
 Console.WriteLine($"Street: {streetName}");
+Console.WriteLine($"Faction: {factionName}");
 ```
 
 ## Deterministic Generation
@@ -237,6 +239,12 @@ public string GenerateStreetName(Theme theme)
 Generates a street name for the specified theme.
 
 ```csharp
+public string GenerateFactionName(Theme theme)
+```
+
+Generates a faction name for the specified theme.
+
+```csharp
 public void ResetSession()
 ```
 
@@ -303,6 +311,7 @@ Thrown when the generator cannot produce a unique name after 1000 attempts.
   - NPCs: "Nexora", "Zerox", "Cyra"
   - Cities: "NeoCity", "TechHaven", "CyberPrime"
   - Streets: "DataLink Street", "Neural Avenue"
+  - Factions: "MegaCorp Syndicate", "Quantum Collective", "OmniSystems"
 
 ### Elves
 - **Style**: Melodic, flowing, nature-inspired
@@ -311,6 +320,7 @@ Thrown when the generator cannot produce a unique name after 1000 attempts.
   - NPCs: "Thalindra", "Vaelorn", "Aelindor"
   - Cities: "Silvanthir", "Lorendell", "Faeloria"
   - Streets: "Moonwhisper Path", "Starlight Way"
+  - Factions: "Silverleaf Council", "Moonstone Circle", "Starlight Order"
 
 ### Orcs
 - **Style**: Harsh, guttural, territorial
@@ -319,6 +329,7 @@ Thrown when the generator cannot produce a unique name after 1000 attempts.
   - NPCs: "Grok", "Thrak", "Urgoth"
   - Cities: "Kragmor", "Grothak", "Thrakkar"
   - Streets: "Ironjaw Road", "Bloodstone Way"
+  - Factions: "Bloodfang Clan", "Ironskull Horde", "Grimrock Warband"
 
 ## Contributing
 

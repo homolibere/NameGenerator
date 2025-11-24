@@ -45,4 +45,10 @@ internal class ThemeData
     /// </summary>
     [JsonPropertyName("streetNames")]
     public required StreetNameData StreetNames { get; init; }
+
+    /// <summary>
+    /// Gets the faction name data for this theme.
+    /// </summary>
+    [JsonPropertyName("factionNames")]
+    public required FactionNameData FactionNames { get; init; }
 }

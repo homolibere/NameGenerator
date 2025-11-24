@@ -159,6 +159,26 @@ public class NameGenerator
     }
 
     /// <summary>
+    /// Generates a faction name for the specified theme.
+    /// </summary>
+    /// <param name="theme">The theme to use for name generation.</param>
+    /// <returns>A generated faction name that is unique within the current session.</returns>
+    /// <exception cref="ArgumentException">Thrown when an invalid theme value is provided.</exception>
+    /// <exception cref="NamePoolExhaustedException">Thrown when unable to generate a unique name after 1000 attempts.</exception>
+    public string GenerateFactionName(Theme theme)
+    {
+        // Validate theme parameter
+        if (!Enum.IsDefined(typeof(Theme), theme))
+        {
+            throw new ArgumentException(
+                $"Invalid theme value: {(int)theme}. Expected values are: {string.Join(", ", Enum.GetNames(typeof(Theme)))}.",
+                nameof(theme));
+        }
+
+        return _coordinator.GenerateName(EntityType.Faction, theme, _sessionState);
+    }
+
+    /// <summary>
     /// Resets the generation session, clearing all tracked names and allowing previously generated names to be reused.
     /// The random number generator is reinitialized with the same seed to maintain deterministic behavior.
     /// </summary>

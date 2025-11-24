@@ -71,5 +71,10 @@
     "prefixes": ["War", "Blood", "Iron", "Stone", "Rock", "Bone", "Skull", "Fang", "Claw", "Tusk", "Fire", "Smoke", "Ash", "Ember", "Coal", "Slag", "Ore", "Metal", "Steel", "Bronze"],
     "cores": ["Gut", "Gash", "Slash", "Hack", "Chop", "Smash", "Crush", "Break", "Crack", "Split", "Rend", "Tear", "Rip", "Cut", "Slice", "Cleave", "Sever", "Sunder", "Shatter", "Splinter"],
     "streetSuffixes": ["Way", "Path", "Road", "Trail", "Track", "Route", "Pass", "Passage", "Alley", "Lane", "Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Row", "Walk", "Run", "March"]
+  },
+  "factionNames": {
+    "prefixes": ["Blood", "War", "Iron", "Stone", "Skull", "Bone", "Fang", "Claw", "Tusk", "Fire", "Smoke", "Ash", "Death", "Doom", "Rage", "Fury", "Wrath", "Hate", "Pain", "Scar"],
+    "cores": ["Clan", "Horde", "Warband", "Tribe", "Pack", "Gang", "Mob", "Crew", "Band", "Legion", "Army", "Host", "Force", "Troop", "Company", "Regiment", "Battalion", "Squad", "Unit", "Group"],
+    "suffixes": ["", " of the North", " of the South", " of the East", " of the West", " of the Mountain", " of the Valley", " of the Plains", " of the Wastes", " of the Badlands", "", "", "", "", "", "", "", "", "", ""]
   }
 }

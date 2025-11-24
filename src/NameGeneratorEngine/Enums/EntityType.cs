@@ -28,5 +28,10 @@ public enum EntityType
     /// <summary>
     /// Street entity (thoroughfare).
     /// </summary>
-    Street
+    Street,
+
+    /// <summary>
+    /// Faction entity (organization, group, or alliance).
+    /// </summary>
+    Faction
 }

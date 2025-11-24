@@ -166,6 +166,19 @@ public class NameGeneratorTests
     }
 
     [Fact]
+    public void GenerateFactionName_WithTheme_ShouldReturnString()
+    {
+        // Arrange
+        var generator = new NameGenerator(42);
+
+        // Act
+        string name = generator.GenerateFactionName(Theme.Cyberpunk);
+
+        // Assert
+        name.Should().NotBeNullOrWhiteSpace();
+    }
+
+    [Fact]
     public void ResetSession_ShouldExist()
     {
         // Arrange
@@ -255,6 +268,22 @@ public class NameGeneratorTests
 
         // Act
         string name = generator.GenerateStreetName(theme);
+
+        // Assert
+        name.Should().NotBeNullOrWhiteSpace();
+    }
+
+    [Theory]
+    [InlineData(Theme.Cyberpunk)]
+    [InlineData(Theme.Elves)]
+    [InlineData(Theme.Orcs)]
+    public void GenerateFactionName_WithAllThemes_ShouldReturnString(Theme theme)
+    {
+        // Arrange
+        var generator = new NameGenerator(42);
+
+        // Act
+        string name = generator.GenerateFactionName(theme);
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
@@ -358,6 +387,66 @@ public class NameGeneratorTests
 
         // Assert
         name.Should().NotBeNullOrWhiteSpace();
+    }
+
+    #endregion
+
+    #region Faction Name Tests
+
+    [Fact]
+    public void GenerateFactionName_ShouldGenerateUniqueNamesWithinSession()
+    {
+        // Arrange
+        var generator = new NameGenerator(42);
+        var generatedNames = new HashSet<string>();
+        const int nameCount = 50;
+
+        // Act
+        for (int i = 0; i < nameCount; i++)
+        {
+            string name = generator.GenerateFactionName(Theme.Cyberpunk);
+            generatedNames.Add(name);
+        }
+
+        // Assert
+        generatedNames.Should().HaveCount(nameCount, "all faction names should be unique within a session");
+    }
+
+    [Fact]
+    public void GenerateFactionName_WithSameSeed_ShouldProduceDeterministicResults()
+    {
+        // Arrange
+        const int seed = 12345;
+        var generator1 = new NameGenerator(seed);
+        var generator2 = new NameGenerator(seed);
+
+        // Act
+        string name1 = generator1.GenerateFactionName(Theme.Elves);
+        string name2 = generator2.GenerateFactionName(Theme.Elves);
+
+        // Assert
+        name1.Should().Be(name2, "same seed should produce identical faction names");
+    }
+
+    [Fact]
+    public void GenerateFactionName_WithSameSeedMultipleCalls_ShouldProduceDeterministicSequence()
+    {
+        // Arrange
+        const int seed = 99999;
+        var generator1 = new NameGenerator(seed);
+        var generator2 = new NameGenerator(seed);
+        var names1 = new List<string>();
+        var names2 = new List<string>();
+
+        // Act
+        for (int i = 0; i < 10; i++)
+        {
+            names1.Add(generator1.GenerateFactionName(Theme.Orcs));
+            names2.Add(generator2.GenerateFactionName(Theme.Orcs));
+        }
+
+        // Assert
+        names1.Should().Equal(names2, "same seed should produce identical faction name sequences");
     }
 
     #endregion

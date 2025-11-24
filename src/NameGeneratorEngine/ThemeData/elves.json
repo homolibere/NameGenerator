@@ -71,5 +71,10 @@
     "prefixes": ["Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight", "Dawn", "Dusk", "Emerald", "Sapphire", "Pearl", "Ivory", "Marble", "Rose", "Lily", "Willow", "Oak", "Elm", "Birch", "Cedar"],
     "cores": ["Leaf", "Blossom", "Petal", "Branch", "Root", "Vine", "Fern", "Moss", "Brook", "Stream", "River", "Spring", "Pool", "Lake", "Pond", "Fountain", "Cascade", "Falls", "Rapids", "Current"],
     "streetSuffixes": ["Path", "Way", "Lane", "Walk", "Trail", "Road", "Avenue", "Boulevard", "Drive", "Court", "Place", "Terrace", "Circle", "Grove", "Glade", "Green", "Commons", "Promenade", "Esplanade", "Passage"]
+  },
+  "factionNames": {
+    "prefixes": ["Ancient", "Eternal", "Timeless", "Sacred", "Blessed", "Divine", "Celestial", "Mystical", "Ethereal", "Noble", "Grand", "Royal", "High", "Elder", "Silver", "Golden", "Crystal", "Starlight", "Moonlit", "Twilight"],
+    "cores": ["Council", "Circle", "Order", "Assembly", "Conclave", "Covenant", "Alliance", "League", "Union", "Fellowship", "Brotherhood", "Sisterhood", "Society", "Guild", "Collective", "Congregation", "Gathering", "Synod", "Tribunal", "Court"],
+    "suffixes": ["", " of the Stars", " of the Moon", " of the Sun", " of the Forest", " of the Grove", " of the Glade", " of Light", " of Wisdom", " of Knowledge", "", "", "", "", "", "", "", "", "", ""]
   }
 }

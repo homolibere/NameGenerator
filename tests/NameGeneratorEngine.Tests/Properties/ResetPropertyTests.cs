@@ -22,7 +22,7 @@ public class ResetPropertyTests
         // Generate random test scenarios with different seeds, themes, and entity types
         var genSeed = Gen.Int;
         var genTheme = Gen.Int[0, 2].Select(i => (Theme)i); // 0=Cyberpunk, 1=Elves, 2=Orcs
-        var genEntityType = Gen.Int[0, 4].Select(i => (EntityType)i); // 0-4 for 5 entity types
+        var genEntityType = Gen.Int[0, 5].Select(i => (EntityType)i); // 0-5 for 6 entity types
         var genCount = Gen.Int[5, 15]; // Number of names to generate
 
         Gen.Select(genSeed, genTheme, genEntityType, genCount)
@@ -43,6 +43,7 @@ public class ResetPropertyTests
                         EntityType.City => generator.GenerateCityName(theme),
                         EntityType.District => generator.GenerateDistrictName(theme),
                         EntityType.Street => generator.GenerateStreetName(theme),
+                        EntityType.Faction => generator.GenerateFactionName(theme),
                         _ => throw new InvalidOperationException($"Unknown entity type: {entityType}")
                     };
                     firstSetNames.Add(name);
@@ -66,6 +67,7 @@ public class ResetPropertyTests
                         EntityType.City => generator.GenerateCityName(theme),
                         EntityType.District => generator.GenerateDistrictName(theme),
                         EntityType.Street => generator.GenerateStreetName(theme),
+                        EntityType.Faction => generator.GenerateFactionName(theme),
                         _ => throw new InvalidOperationException($"Unknown entity type: {entityType}")
                     };
                     secondSetNames.Add(name);
@@ -110,6 +112,7 @@ public class ResetPropertyTests
                             EntityType.City => generator.GenerateCityName(theme),
                             EntityType.District => generator.GenerateDistrictName(theme),
                             EntityType.Street => generator.GenerateStreetName(theme),
+                            EntityType.Faction => generator.GenerateFactionName(theme),
                             _ => throw new InvalidOperationException($"Unknown entity type: {entityType}")
                         };
                         names.Add(name);
@@ -135,6 +138,7 @@ public class ResetPropertyTests
                             EntityType.City => generator.GenerateCityName(theme),
                             EntityType.District => generator.GenerateDistrictName(theme),
                             EntityType.Street => generator.GenerateStreetName(theme),
+                            EntityType.Faction => generator.GenerateFactionName(theme),
                             _ => throw new InvalidOperationException($"Unknown entity type: {entityType}")
                         };
                         names.Add(name);

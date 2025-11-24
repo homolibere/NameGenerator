@@ -71,5 +71,10 @@
     "prefixes": ["Data", "Cyber", "Tech", "Neural", "Quantum", "Digital", "Virtual", "Synthetic", "Electric", "Plasma", "Laser", "Neon", "Chrome", "Silicon", "Carbon", "Network", "Circuit", "Binary", "Hex", "Code"],
     "cores": ["Link", "Way", "Path", "Line", "Grid", "Net", "Web", "Loop", "Ring", "Circle", "Route", "Track", "Lane", "Run", "Pass", "Crossing", "Junction", "Intersection", "Connector", "Bridge"],
     "streetSuffixes": ["Street", "Avenue", "Boulevard", "Road", "Drive", "Way", "Path", "Lane", "Court", "Place", "Terrace", "Circle", "Loop", "Plaza", "Square", "Parkway", "Highway", "Expressway", "Freeway", "Corridor"]
+  },
+  "factionNames": {
+    "prefixes": ["Mega", "Omni", "Syn", "Quantum", "Hyper", "Ultra", "Macro", "Global", "Trans", "Inter", "Multi", "Poly", "Meta", "Dyna", "Techno", "Cyber", "Nano", "Giga", "Tera", "Neo"],
+    "cores": ["Corp", "Syndicate", "Collective", "Alliance", "Cartel", "Consortium", "Federation", "Union", "League", "Network", "Coalition", "Assembly", "Council", "Order", "Guild", "Society", "Brotherhood", "Sisterhood", "Circle", "Ring"],
+    "suffixes": ["", " Industries", " Systems", " Group", " Holdings", " Enterprises", " Technologies", " Solutions", " Dynamics", " Innovations", "", "", "", "", "", "", "", "", "", ""]
   }
 }

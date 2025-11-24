@@ -53,6 +53,7 @@ internal class GenerationCoordinator
                 EntityType.City => GenerateCityName(themeData, sessionState),
                 EntityType.District => GenerateDistrictName(themeData, sessionState),
                 EntityType.Street => GenerateStreetName(themeData, sessionState),
+                EntityType.Faction => GenerateFactionName(themeData, sessionState),
                 _ => throw new ArgumentException($"Unknown entity type: {entityType}", nameof(entityType))
             };
 
@@ -126,5 +127,10 @@ internal class GenerationCoordinator
     private string GenerateStreetName(ThemeData.ThemeData themeData, SessionState sessionState)
     {
         return _nameBuilder.BuildStreetName(themeData.StreetNames, sessionState.Random);
+    }
+
+    private string GenerateFactionName(ThemeData.ThemeData themeData, SessionState sessionState)
+    {
+        return _nameBuilder.BuildFactionName(themeData.FactionNames, sessionState.Random);
     }
 }
